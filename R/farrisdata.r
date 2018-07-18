@@ -158,3 +158,75 @@ NULL
 #'
 #' @source Farris et al publication.
 "farrisTxSE"
+
+#' Nakayama adult hippocampal CA1 dendritic genes
+#'
+#' Nakayama adult hippocampal CA1 dendritic genes
+#'
+#' Genes derived from Nakayama et al., 2017 mouse adult hippocampal CA1
+#' dendrites.
+#'
+#' Gene symbols were updated using Bioconductor package
+#' \code{org.Mm.eg.db}, using the reported `gene_name` or
+#' `Entrez Gene ID` from the supplemental data. This step was performed
+#' in order to ensure each reference dataset, including the Farris et al.
+#' data, were using the same version of the gene symbol annotations.
+#'
+#' @source
+#' Nakayama, K., Ohashi, R., Shinoda, Y., Yamazaki, M., Abe, M.,
+#' Fujikawa, A., Shigenobu, S., Futatsugi, A., Noda, M., Mikoshiba, K.,
+#' Furuichi, T., Sakimura, K., Shiina, N., 2017.
+#' RNG105/caprin1, an RNA granule protein for dendritic mRNA localization,
+#' is essential for long-term memory formation. eLife 6, e29677.
+#' doi:10.7554/eLife.29677
+#'
+#' @format character vector of Entrez gene symbols
+"NakayamaGenes"
+
+#' Ainsley adult hippocampal CA1 dendritic genes
+#'
+#' Ainsley adult hippocampal CA1 dendritic genes
+#'
+#' Genes derived from Ainsley et al., 2014 mouse adult hippocampal CA1
+#' dendrites.
+#'
+#' Gene symbols were updated using Bioconductor package
+#' \code{org.Mm.eg.db}, using the reported `gene_name` or
+#' `Entrez Gene ID` from the supplemental data. This step was performed
+#' in order to ensure each reference dataset, including the Farris et al.
+#' data, were using the same version of the gene symbol annotations.
+#'
+#' @source
+#' Ainsley, J.A., Drane, L., Jacobs, J., Kittelberger, K.A.,
+#' Reijmers, L.G., 2014.
+#' Functionally diverse dendritic mRNAs rapidly associate with
+#' ribosomes following a novel experience. Nature Communications 5, 4510.
+#' doi:10.1038/ncomms5510
+#'
+#' @format character vector of Entrez gene symbols
+"AinsleyGenes"
+
+#' Cajigas rat hippocampal CA1 dendritic genes
+#'
+#' Cajigas rat hippocampal CA1 dendritic genes
+#'
+#' Genes derived from Cajigas et al., 2012 rat hippocampal CA1
+#' dendrites.
+#'
+#' Gene symbols were updated using Bioconductor package
+#' \code{org.Rn.eg.db}, using the reported `gene_name` or
+#' `Entrez Gene ID` from the supplemental data. This step was performed
+#' in order to ensure each reference dataset, including the Farris et al.
+#' data, were using the same version of the gene symbol annotations.
+#'
+#' @source
+#' Cajigas, I.J., Tushev, G., Will, T.J., tom Dieck, S., Fuerst, N.,
+#' Schuman, E.M., 2012.
+#' The local transcriptome in the synaptic neuropil revealed by
+#' deep sequencing and high-resolution imag-ing.
+#' Neuron 74, 453–466.
+#' doi:10.1016/j.neuron.2012.02.036
+#'
+#' @format character vector of Entrez gene symbols
+"CajigasGenes"
+

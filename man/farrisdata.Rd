@@ -7,11 +7,11 @@
 \title{farrisdata: Farris et al RNA-seq data}
 \description{
 Supporting data for Farris et al Mouse hippocampus
-RNA-seq analysis workflow, utilizing the `jampack`
+RNA-seq analysis workflow, utilizing the \code{jampack}
 package.
 }
 \details{
-These objects are provided as `SummarizedExperiment`
+These objects are provided as \code{SummarizedExperiment}
 objects as described in the Bioconductor package
 \code{\link[SummarizedExperiment]{SummarizedExperiment}}.
 }
