@@ -17,26 +17,26 @@ objects as described in the Bioconductor package
 }
 \section{Available data}{
 
-   \code{\link[farrisdata]{farrisGeneSE}},
-   \code{\link{farrisTxSE}}
+\code{\link[farrisdata]{farrisGeneSE}},
+\code{\link{farrisTxSE}}
 }
 
 \section{Gene and transcript models}{
 
-   Gene and transcript models were defined
-   in the corresponding Gencode GTF file
-   available from the Gencode FTP site:
+Gene and transcript models were defined
+in the corresponding Gencode GTF file
+available from the Gencode FTP site:
 
-   \href{ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M12/gencode.vM12.annotation.gtf.gz}{gencode.vM12.annotation.gtf.gz}
+\href{ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M12/gencode.vM12.annotation.gtf.gz}{gencode.vM12.annotation.gtf.gz}
 
-   Alignment to the transcriptome was performed using
-   the FASTA sequence file also from Gencode FTP site:
+Alignment to the transcriptome was performed using
+the FASTA sequence file also from Gencode FTP site:
 
-   \href{ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M12/gencode.vM12.transcripts.fa.gz}{gencode.vM12.transcripts.fa.gz}
+\href{ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M12/gencode.vM12.transcripts.fa.gz}{gencode.vM12.transcripts.fa.gz}
 
-   Gencode data is subject to
-   \href{https://creativecommons.org/licenses/by-nc-nd/2.5/}{Creative Commons License}
-   (Attribution, Non-commercial, No-derivatives 2.5 license),
-   see \url{https://creativecommons.org/licenses/by-nc-nd/2.5/}.
+Gencode data is subject to
+\href{https://creativecommons.org/licenses/by-nc-nd/2.5/}{Creative Commons License}
+(Attribution, Non-commercial, No-derivatives 2.5 license),
+see \url{https://creativecommons.org/licenses/by-nc-nd/2.5/}.
 }
 

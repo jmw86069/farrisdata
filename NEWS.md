@@ -1,3 +1,10 @@
+# version 0.0.2.900
+
+## New data
+
+* `GencodeVM12mm10cai` is a numeric vector of codon adaptability
+index (CAI) values for mouse mm10 Gencode vM12.
+
 # version 0.0.1.900
 
 ## New data

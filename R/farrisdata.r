@@ -230,3 +230,11 @@ NULL
 #' @format character vector of Entrez gene symbols
 "CajigasGenes"
 
+#' Codon Adaptability Index for Gencode mouse mm10 vM12
+#'
+#' Codon Adaptability Index for Gencode mouse mm10 vM12
+#'
+#' @format numeric vector of codon adaptability index (cai)
+#' values named by transcript_name defined in the Gencode
+#' GTF file for vM12.
+"GencodeVM12mm10cai"

@@ -24,8 +24,8 @@ Genes derived from Cajigas et al., 2012 rat hippocampal CA1
 dendrites.
 
 Gene symbols were updated using Bioconductor package
-\code{org.Rn.eg.db}, using the reported `gene_name` or
-`Entrez Gene ID` from the supplemental data. This step was performed
+\code{org.Rn.eg.db}, using the reported \code{gene_name} or
+\code{Entrez Gene ID} from the supplemental data. This step was performed
 in order to ensure each reference dataset, including the Farris et al.
 data, were using the same version of the gene symbol annotations.
 }
