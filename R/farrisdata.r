@@ -239,6 +239,36 @@ NULL
 #' GTF file for vM12.
 "GencodeVM12mm10cai"
 
+#' Count of Low CAI codons for Gencode mouse mm10 vM12
+#'
+#' Count of Low CAI codons for Gencode mouse mm10 vM12
+#'
+#' This data is derived from codon adaptability index (CAI)
+#' data, summarized to count the number of residues where
+#' the CAI value is 0.5 or lower. This value indicates the
+#' codon is no more than 50% the maximum codon for a given
+#' amino acid.
+#'
+#' @format integer number of codons where the CAI is 0.5
+#' or lower, named by transcript_name defined in the Gencode
+#' GTF file for vM12.
+"GencodeVM12mm10caiCtLow"
+
+#' Count of Bad CAI codons for Gencode mouse mm10 vM12
+#'
+#' Count of Bad CAI codons for Gencode mouse mm10 vM12
+#'
+#' This data is derived from codon adaptability index (CAI)
+#' data, summarized to count the number of residues where
+#' the CAI value is 0.3 or lower. This value indicates the
+#' codon is no more than 30% the maximum codon for a given
+#' amino acid.
+#'
+#' @format integer number of codons where the CAI is 0.3
+#' or lower, named by transcript_name defined in the Gencode
+#' GTF file for vM12.
+"GencodeVM12mm10caiCtBad"
+
 #' CDS length for Gencode mouse mm10 vM12
 #'
 #' CDS length for Gencode mouse mm10 vM12
