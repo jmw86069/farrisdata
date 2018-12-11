@@ -238,3 +238,12 @@ NULL
 #' values named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 "GencodeVM12mm10cai"
+
+#' CDS length for Gencode mouse mm10 vM12
+#'
+#' CDS length for Gencode mouse mm10 vM12
+#'
+#' @format numeric vector of CDS length for each
+#' protein-coding transcript as defined in the Gencode
+#' GTF file for vM12.
+"GencodeVM12mm10cdsLength"
