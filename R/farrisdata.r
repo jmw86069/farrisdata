@@ -269,6 +269,20 @@ NULL
 #' GTF file for vM12.
 "GencodeVM12mm10caiCtBad"
 
+#' Mean of Q1 CAI values for Gencode mouse mm10 vM12
+#'
+#' Mean of Q1 CAI values for Gencode mouse mm10 vM12
+#'
+#' This data is derived from codon adaptability index (CAI)
+#' data, summarized to represent the mean of the lowest quartile
+#' of CAI values per transcript.
+#'
+#' @format numeric vector with the mean CAI value from the lowest
+#' quartile of CAI values per transcript,
+#' named by transcript_name defined in the Gencode
+#' GTF file for vM12.
+"GencodeVM12mm10caiQ1mean"
+
 #' CDS length for Gencode mouse mm10 vM12
 #'
 #' CDS length for Gencode mouse mm10 vM12
