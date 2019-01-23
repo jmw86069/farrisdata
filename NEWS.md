@@ -1,3 +1,9 @@
+# version 0.0.4.900
+
+## bug fixes
+
+* Added "transcript_id" to colnames(rowData(farrisTxSE))
+
 # version 0.0.3.900
 
 ## bug fixes
