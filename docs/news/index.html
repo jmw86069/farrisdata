@@ -103,6 +103,24 @@
       <small>Source: <a href='https://github.com/jmw86069/farrisdata/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="version-0-0-3-900" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-0-3-900" class="anchor"></a>version 0.0.3.900</h1>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>bug fixes</h2>
+<ul>
+<li>Resolved a small issue in handling negative expression values for normalized TPM data, by adding +1 to all non-zero values. This adjustment ensures that all non-zero TPM values are still positive after normalization, while all values which were originally zero are maintained at zero. Note the TPM thresholds are already adjusted in the jampack Rmarkdown analysis workflow, to accomodate this adjustment.</li>
+</ul>
+</div>
+<div id="enhancements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements" class="anchor"></a>enhancements</h2>
+<ul>
+<li>Full docs were generated using pkgdown, describing each data object.</li>
+</ul>
+</div>
+</div>
     <div id="version-0-0-2-900" class="section level1">
 <h1 class="page-header">
 <a href="#version-0-0-2-900" class="anchor"></a>version 0.0.2.900</h1>
@@ -140,6 +158,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#version-0-0-3-900">0.0.3.900</a></li>
         <li><a href="#version-0-0-2-900">0.0.2.900</a></li>
         <li><a href="#version-0-0-1-900">0.0.1.900</a></li>
       </ul>

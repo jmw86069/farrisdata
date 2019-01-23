@@ -189,39 +189,31 @@ pseudocounts from Salmon, after median normalization.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>farrisTxSE</span>);
 <span class='co'>## Transcript-Gene annotation DataFrame</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>rowData</a></span>(<span class='no'>farrisTxSE</span>))</div><div class='output co'>#&gt; DataFrame with 6 rows and 12 columns
-#&gt;                                   probeID            ProbeName      GeneName
-#&gt;                               &lt;character&gt;          &lt;character&gt;   &lt;character&gt;
-#&gt; ENSMUST00000193812.1 ENSMUST00000193812.1 ENSMUST00000193812.1 4933401J01Rik
-#&gt; ENSMUST00000082908.1 ENSMUST00000082908.1 ENSMUST00000082908.1       Gm26206
-#&gt; ENSMUST00000162897.1 ENSMUST00000162897.1 ENSMUST00000162897.1          Xkr4
-#&gt; ENSMUST00000159265.1 ENSMUST00000159265.1 ENSMUST00000159265.1          Xkr4
-#&gt; ENSMUST00000070533.4 ENSMUST00000070533.4 ENSMUST00000070533.4          Xkr4
-#&gt; ENSMUST00000192857.1 ENSMUST00000192857.1 ENSMUST00000192857.1       Gm18956
-#&gt;                         geneSymbol            gene_type      transcript_type
-#&gt;                        &lt;character&gt;          &lt;character&gt;          &lt;character&gt;
-#&gt; ENSMUST00000193812.1 4933401J01Rik                  TEC                  TEC
-#&gt; ENSMUST00000082908.1       Gm26206                snRNA                snRNA
-#&gt; ENSMUST00000162897.1          Xkr4       protein_coding processed_transcript
-#&gt; ENSMUST00000159265.1          Xkr4       protein_coding processed_transcript
-#&gt; ENSMUST00000070533.4          Xkr4       protein_coding       protein_coding
-#&gt; ENSMUST00000192857.1       Gm18956 processed_pseudogene processed_pseudogene
-#&gt;                        has3UTR TxHas3UTR TxHasExt3UTR GeneHasExt3UTR  TxHasCDS
-#&gt;                      &lt;logical&gt; &lt;logical&gt;    &lt;logical&gt;      &lt;logical&gt; &lt;logical&gt;
-#&gt; ENSMUST00000193812.1     FALSE     FALSE        FALSE          FALSE     FALSE
-#&gt; ENSMUST00000082908.1     FALSE     FALSE        FALSE          FALSE     FALSE
-#&gt; ENSMUST00000162897.1      TRUE     FALSE        FALSE           TRUE     FALSE
-#&gt; ENSMUST00000159265.1      TRUE     FALSE        FALSE           TRUE     FALSE
-#&gt; ENSMUST00000070533.4      TRUE      TRUE         TRUE           TRUE      TRUE
-#&gt; ENSMUST00000192857.1     FALSE     FALSE        FALSE          FALSE     FALSE
-#&gt;                      TxDetectedByTPM
-#&gt;                            &lt;logical&gt;
-#&gt; ENSMUST00000193812.1           FALSE
-#&gt; ENSMUST00000082908.1           FALSE
-#&gt; ENSMUST00000162897.1            TRUE
-#&gt; ENSMUST00000159265.1            TRUE
-#&gt; ENSMUST00000070533.4            TRUE
-#&gt; ENSMUST00000192857.1           FALSE</div><div class='input'>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>rowData</a></span>(<span class='no'>farrisTxSE</span>))</div><div class='output co'>#&gt; DataFrame with 6 rows and 10 columns
+#&gt;                             transcript_id    geneSymbol            gene_type
+#&gt;                               &lt;character&gt;   &lt;character&gt;          &lt;character&gt;
+#&gt; ENSMUST00000193812.1 ENSMUST00000193812.1 4933401J01Rik                  TEC
+#&gt; ENSMUST00000082908.1 ENSMUST00000082908.1       Gm26206                snRNA
+#&gt; ENSMUST00000162897.1 ENSMUST00000162897.1          Xkr4       protein_coding
+#&gt; ENSMUST00000159265.1 ENSMUST00000159265.1          Xkr4       protein_coding
+#&gt; ENSMUST00000070533.4 ENSMUST00000070533.4          Xkr4       protein_coding
+#&gt; ENSMUST00000192857.1 ENSMUST00000192857.1       Gm18956 processed_pseudogene
+#&gt;                           transcript_type   has3UTR TxHas3UTR TxHasExt3UTR
+#&gt;                               &lt;character&gt; &lt;logical&gt; &lt;logical&gt;    &lt;logical&gt;
+#&gt; ENSMUST00000193812.1                  TEC     FALSE     FALSE        FALSE
+#&gt; ENSMUST00000082908.1                snRNA     FALSE     FALSE        FALSE
+#&gt; ENSMUST00000162897.1 processed_transcript      TRUE     FALSE        FALSE
+#&gt; ENSMUST00000159265.1 processed_transcript      TRUE     FALSE        FALSE
+#&gt; ENSMUST00000070533.4       protein_coding      TRUE      TRUE         TRUE
+#&gt; ENSMUST00000192857.1 processed_pseudogene     FALSE     FALSE        FALSE
+#&gt;                      GeneHasExt3UTR  TxHasCDS TxDetectedByTPM
+#&gt;                           &lt;logical&gt; &lt;logical&gt;       &lt;logical&gt;
+#&gt; ENSMUST00000193812.1          FALSE     FALSE           FALSE
+#&gt; ENSMUST00000082908.1          FALSE     FALSE           FALSE
+#&gt; ENSMUST00000162897.1           TRUE     FALSE            TRUE
+#&gt; ENSMUST00000159265.1           TRUE     FALSE            TRUE
+#&gt; ENSMUST00000070533.4           TRUE      TRUE            TRUE
+#&gt; ENSMUST00000192857.1          FALSE     FALSE           FALSE</div><div class='input'>
 <span class='co'>## Sample annotation DataFrame</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>colData</a></span>(<span class='no'>farrisTxSE</span>))</div><div class='output co'>#&gt; DataFrame with 6 rows and 4 columns
 #&gt;          CellType   Region    AnimalID groupName
