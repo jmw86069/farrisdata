@@ -19,4 +19,9 @@ This data is derived from codon adaptability index (CAI)
 data, summarized to represent the mean of the lowest quartile
 of CAI values per transcript.
 }
+\examples{
+data(GencodeVM12mm10caiQ1mean);
+## Print the first 20 entries
+print(head(GencodeVM12mm10caiQ1mean, 20));
+}
 \keyword{datasets}

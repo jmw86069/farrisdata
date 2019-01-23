@@ -13,4 +13,9 @@ GencodeVM12mm10cai
 \description{
 Codon Adaptability Index for Gencode mouse mm10 vM12
 }
+\examples{
+data(GencodeVM12mm10cai);
+## Print the first 20 entries
+print(head(GencodeVM12mm10cai, 20));
+}
 \keyword{datasets}

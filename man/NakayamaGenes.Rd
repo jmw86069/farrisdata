@@ -29,4 +29,9 @@ Gene symbols were updated using Bioconductor package
 in order to ensure each reference dataset, including the Farris et al.
 data, were using the same version of the gene symbol annotations.
 }
+\examples{
+data(NakayamaGenes);
+## Print the first 50 genes
+print(head(NakayamaGenes, 50));
+}
 \keyword{datasets}

@@ -20,4 +20,9 @@ the CAI value is 0.3 or lower. This value indicates the
 codon is no more than 30% the maximum codon for a given
 amino acid.
 }
+\examples{
+data(GencodeVM12mm10caiCtBad);
+## Print the first 20 entries
+print(head(GencodeVM12mm10caiCtBad, 20));
+}
 \keyword{datasets}

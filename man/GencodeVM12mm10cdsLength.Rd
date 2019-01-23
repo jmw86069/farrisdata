@@ -13,4 +13,9 @@ GencodeVM12mm10cdsLength
 \description{
 CDS length for Gencode mouse mm10 vM12
 }
+\examples{
+data(GencodeVM12mm10cdsLength);
+## Print the first 20 entries
+print(head(GencodeVM12mm10cdsLength, 20));
+}
 \keyword{datasets}
