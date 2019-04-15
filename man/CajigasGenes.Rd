@@ -34,4 +34,9 @@ data(CajigasGenes);
 ## Print the first 50 genes
 print(head(CajigasGenes, 50));
 }
+\seealso{
+Other Reference mouse hippocampus gene lists: \code{\link{AinsleyGenes}},
+  \code{\link{NakayamaGenes}}
+}
+\concept{Reference mouse hippocampus gene lists}
 \keyword{datasets}

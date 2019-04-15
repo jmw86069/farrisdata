@@ -1,3 +1,12 @@
+# version 0.0.5.900
+
+## additions
+
+* `farris_sashimi_files_df` data.frame was added to support
+`splicejam::prepareSashimi()` which uses a data.frame to configure
+the various input locations for coverage and splice junction
+files.
+
 # version 0.0.4.900
 
 ## bug fixes

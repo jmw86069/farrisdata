@@ -24,25 +24,13 @@ Install using the R package `devtools` and this command:
 devtools::install_github("jmw86069/farrisdata")
 ```
 
-## Contents
+To install splicejam and/or jampack:
 
-A full set of documentation is provided using the `pkgdown::build_site()`
-function, and is available here:
+```
+devtools::install_github("jmw86069/splicejam")
+devtools::install_github("jmw86069/jampack")
+```
 
-[Full data reference](https://jmw86069.github.io/farrisdata)
-
-This package contains two reference `SummarizedExperiment` objects,
-which are described in more detail in the corresponding R help pages.
-
-* **farrisGeneSE** gene-level Salmon pseudocounts.
-* **farrisTxSE** transcript-level Salmon pseudocounts, and TPM values.
-
-The package also provides three reference gene lists containing
-detected genes in hippocampal CA1 in mouse and rat (Nakayama et al. 2017,
-Ainsley et al., 2014, Cajigas et al. 2012).
-
-Lastly, the package provides a color substitution vector `colorSub`,
-and several vectors with derived transcript features.
 
 ## Literature references:
 

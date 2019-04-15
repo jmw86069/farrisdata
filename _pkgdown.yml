@@ -1,0 +1,24 @@
+template:
+  params:
+    bootswatch: cosmo
+reference:
+- title: Farris et al SummarizedExperiment data
+  desc: SummarizedExperiment data for gene- and transcript-based expression
+  contents:
+  - has_concept("farrisdata SummarizedExperiment data")
+- title: Reference mouse hippocampus gene lists
+  desc: Reference mouse hippocampus gene lists compared with Farris et al data
+  contents:
+  - has_concept("Reference mouse hippocampus gene lists")
+- title: Mouse codon usage data
+  desc: Mouse codon usage supporting data based upon Farris et al data
+  contents:
+  - has_concept("Mouse codon usage data")
+- title: Sashimi plot data
+  desc: Farris et al data used for Sashimi plots in `splicejam::prepareSashimi()`
+  contents:
+  - has_concept("Sashimi plot data")
+- title: Farris et al colors
+  desc: Custom categorical colors used in Farris et al figures
+  contents:
+  - has_concept("Farris et al colors")

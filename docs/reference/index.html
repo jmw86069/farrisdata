@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">farrisdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.900</span>
       </span>
     </div>
 
@@ -113,8 +113,28 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
+          <h2 id="section-farris-et-al-summarizedexperiment-data" class="hasAnchor"><a href="#section-farris-et-al-summarizedexperiment-data" class="anchor"></a>Farris et al SummarizedExperiment data</h2>
+          <p class="section-desc"><p>SummarizedExperiment data for gene- and transcript-based expression</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="farrisGeneSE.html">farrisGeneSE</a></code> </p>
+        </td>
+        <td><p>Farris et al gene-level expression data</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="farrisTxSE.html">farrisTxSE</a></code> </p>
+        </td>
+        <td><p>Farris et al transcript-level expression data</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-reference-mouse-hippocampus-gene-lists" class="hasAnchor"><a href="#section-reference-mouse-hippocampus-gene-lists" class="anchor"></a>Reference mouse hippocampus gene lists</h2>
+          <p class="section-desc"><p>Reference mouse hippocampus gene lists compared with Farris et al data</p></p>
         </th>
       </tr>
       <tr>
@@ -132,16 +152,18 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="GencodeVM12mm10cai.html">GencodeVM12mm10cai</a></code> </p>
+          <p><code><a href="NakayamaGenes.html">NakayamaGenes</a></code> </p>
         </td>
-        <td><p>Codon Adaptability Index for Gencode mouse mm10 vM12</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="GencodeVM12mm10caiCtBad.html">GencodeVM12mm10caiCtBad</a></code> </p>
-        </td>
-        <td><p>Count of Bad CAI codons for Gencode mouse mm10 vM12</p></td>
-      </tr><tr>
+        <td><p>Nakayama adult hippocampal CA1 dendritic genes</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-mouse-codon-usage-data" class="hasAnchor"><a href="#section-mouse-codon-usage-data" class="anchor"></a>Mouse codon usage data</h2>
+          <p class="section-desc"><p>Mouse codon usage supporting data based upon Farris et al data</p></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
           <p><code><a href="GencodeVM12mm10caiCtLow.html">GencodeVM12mm10caiCtLow</a></code> </p>
@@ -159,36 +181,34 @@
           <p><code><a href="GencodeVM12mm10cdsLength.html">GencodeVM12mm10cdsLength</a></code> </p>
         </td>
         <td><p>CDS length for Gencode mouse mm10 vM12</p></td>
-      </tr><tr>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-sashimi-plot-data" class="hasAnchor"><a href="#section-sashimi-plot-data" class="anchor"></a>Sashimi plot data</h2>
+          <p class="section-desc"><p>Farris et al data used for Sashimi plots in <code><a href="https://www.rdocumentation.org/packages/splicejam/topics/prepareSashimi">splicejam::prepareSashimi()</a></code></p></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
-          <p><code><a href="NakayamaGenes.html">NakayamaGenes</a></code> </p>
+          <p><code><a href="farris_sashimi_files_df.html">farris_sashimi_files_df</a></code> </p>
         </td>
-        <td><p>Nakayama adult hippocampal CA1 dendritic genes</p></td>
-      </tr><tr>
+        <td><p>Sashimi plot files data.frame for Farris data</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-farris-et-al-colors" class="hasAnchor"><a href="#section-farris-et-al-colors" class="anchor"></a>Farris et al colors</h2>
+          <p class="section-desc"><p>Custom categorical colors used in Farris et al figures</p></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
           <p><code><a href="colorSub.html">colorSub</a></code> </p>
         </td>
         <td><p>Group colors used for Farris data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="farrisGeneSE.html">farrisGeneSE</a></code> </p>
-        </td>
-        <td><p>Farris et al gene-level expression data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="farrisTxSE.html">farrisTxSE</a></code> </p>
-        </td>
-        <td><p>Farris et al transcript-level expression data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="farrisdata.html">farrisdata</a></code> </p>
-        </td>
-        <td><p>farrisdata: Farris et al RNA-seq data</p></td>
       </tr>
     </tbody>
     </table>
@@ -197,7 +217,11 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-farris-et-al-summarizedexperiment-data">Farris et al SummarizedExperiment data</a></li>
+      <li><a href="#section-reference-mouse-hippocampus-gene-lists">Reference mouse hippocampus gene lists</a></li>
+      <li><a href="#section-mouse-codon-usage-data">Mouse codon usage data</a></li>
+      <li><a href="#section-sashimi-plot-data">Sashimi plot data</a></li>
+      <li><a href="#section-farris-et-al-colors">Farris et al colors</a></li>
     </ul>
   </div>
 </div>

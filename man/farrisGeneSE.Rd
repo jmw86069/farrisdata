@@ -59,12 +59,34 @@ after median normalization.
 \examples{
 data(farrisGeneSE);
 ## Gene annotation DataFrame
-head(SummarizedExperiment::rowData(farrisGeneSE))
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      tail(head(SummarizedExperiment::rowData(farrisGeneSE), 3079), 10)
+   )
+} else {
+   tail(head(SummarizedExperiment::rowData(farrisGeneSE), 3079), 10)
+}
 
 ## Sample annotation DataFrame
-head(SummarizedExperiment::colData(farrisGeneSE))
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      SummarizedExperiment::colData(farrisGeneSE)
+   )
+} else {
+   SummarizedExperiment::colData(farrisGeneSE)
+}
 
 ## Assay data matrix for normalized counts
-head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]]);
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      tail(head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]], 3079), 10)
+   )
+} else {
+   tail(head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]], 3079), 10)
 }
+}
+\seealso{
+Other farrisdata SummarizedExperiment data: \code{\link{farrisTxSE}}
+}
+\concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}

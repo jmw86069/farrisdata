@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">farrisdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.900</span>
       </span>
     </div>
 
@@ -161,58 +161,90 @@ data following Salmon quantitation, and import using
 Data is stored as log2-transformed pseudocounts from Salmon,
 after median normalization.</p>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other farrisdata SummarizedExperiment data: <code><a href='farrisTxSE.html'>farrisTxSE</a></code></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>farrisGeneSE</span>);
 <span class='co'>## Gene annotation DataFrame</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>rowData</a></span>(<span class='no'>farrisGeneSE</span>))</div><div class='output co'>#&gt; DataFrame with 6 rows and 4 columns
-#&gt;                       probeID      ProbeName       GeneName     geneSymbol
-#&gt;                   &lt;character&gt;    &lt;character&gt;    &lt;character&gt;    &lt;character&gt;
-#&gt; -343C11.2           -343C11.2      -343C11.2      -343C11.2      -343C11.2
-#&gt; 00R_AC107638.2 00R_AC107638.2 00R_AC107638.2 00R_AC107638.2 00R_AC107638.2
-#&gt; 00R_Pgap2           00R_Pgap2      00R_Pgap2      00R_Pgap2      00R_Pgap2
-#&gt; 0610005C13Rik   0610005C13Rik  0610005C13Rik  0610005C13Rik  0610005C13Rik
-#&gt; 0610006L08Rik   0610006L08Rik  0610006L08Rik  0610006L08Rik  0610006L08Rik
-#&gt; 0610007P14Rik   0610007P14Rik  0610007P14Rik  0610007P14Rik  0610007P14Rik</div><div class='input'>
+<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressPackageStartupMessages</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>knitr</span>))) {
+   <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/knitr/topics/kable'>kable</a></span>(
+      <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>tail</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>rowData</a></span>(<span class='no'>farrisGeneSE</span>), <span class='fl'>3079</span>), <span class='fl'>10</span>)
+   )
+} <span class='kw'>else</span> {
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>tail</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>rowData</a></span>(<span class='no'>farrisGeneSE</span>), <span class='fl'>3079</span>), <span class='fl'>10</span>)
+}</div><div class='output co'>#&gt; <span class='warning'>Warning: package ‘knitr’ was built under R version 3.5.2</span></div><div class='output co'>#&gt; 
+#&gt; 
+#&gt; |         |probeID  |ProbeName |GeneName |geneSymbol |
+#&gt; |:--------|:--------|:---------|:--------|:----------|
+#&gt; |Amigo1   |Amigo1   |Amigo1    |Amigo1   |Amigo1     |
+#&gt; |Amigo2   |Amigo2   |Amigo2    |Amigo2   |Amigo2     |
+#&gt; |Amigo3   |Amigo3   |Amigo3    |Amigo3   |Amigo3     |
+#&gt; |Ammecr1  |Ammecr1  |Ammecr1   |Ammecr1  |Ammecr1    |
+#&gt; |Ammecr1l |Ammecr1l |Ammecr1l  |Ammecr1l |Ammecr1l   |
+#&gt; |Amn      |Amn      |Amn       |Amn      |Amn        |
+#&gt; |Amn1     |Amn1     |Amn1      |Amn1     |Amn1       |
+#&gt; |Amot     |Amot     |Amot      |Amot     |Amot       |
+#&gt; |Amotl1   |Amotl1   |Amotl1    |Amotl1   |Amotl1     |
+#&gt; |Amotl2   |Amotl2   |Amotl2    |Amotl2   |Amotl2     |</div><div class='input'>
 <span class='co'>## Sample annotation DataFrame</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>colData</a></span>(<span class='no'>farrisGeneSE</span>))</div><div class='output co'>#&gt; DataFrame with 6 rows and 4 columns
-#&gt;          CellType Compartment    AnimalID groupName
-#&gt;          &lt;factor&gt;    &lt;factor&gt; &lt;character&gt;  &lt;factor&gt;
-#&gt; CA2CB492      CA2          CB         492    CA2_CB
-#&gt; CA2CB496      CA2          CB         496    CA2_CB
-#&gt; CA2CB502      CA2          CB         502    CA2_CB
-#&gt; CA2DE492      CA2          DE         492    CA2_DE
-#&gt; CA2DE496      CA2          DE         496    CA2_DE
-#&gt; CA2DE502      CA2          DE         502    CA2_DE</div><div class='input'>
+<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressPackageStartupMessages</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>knitr</span>))) {
+   <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/knitr/topics/kable'>kable</a></span>(
+      <span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>colData</a></span>(<span class='no'>farrisGeneSE</span>)
+   )
+} <span class='kw'>else</span> {
+   <span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>colData</a></span>(<span class='no'>farrisGeneSE</span>)
+}</div><div class='output co'>#&gt; 
+#&gt; 
+#&gt; |         |CellType |Compartment |AnimalID |groupName |
+#&gt; |:--------|:--------|:-----------|:--------|:---------|
+#&gt; |CA2CB492 |CA2      |CB          |492      |CA2_CB    |
+#&gt; |CA2CB496 |CA2      |CB          |496      |CA2_CB    |
+#&gt; |CA2CB502 |CA2      |CB          |502      |CA2_CB    |
+#&gt; |CA2DE492 |CA2      |DE          |492      |CA2_DE    |
+#&gt; |CA2DE496 |CA2      |DE          |496      |CA2_DE    |
+#&gt; |CA2DE502 |CA2      |DE          |502      |CA2_DE    |
+#&gt; |CA1CB492 |CA1      |CB          |492      |CA1_CB    |
+#&gt; |CA1CB496 |CA1      |CB          |496      |CA1_CB    |
+#&gt; |CA1CB502 |CA1      |CB          |502      |CA1_CB    |
+#&gt; |CA1DE492 |CA1      |DE          |492      |CA1_DE    |
+#&gt; |CA1DE496 |CA1      |DE          |496      |CA1_DE    |
+#&gt; |CA1DE502 |CA1      |DE          |502      |CA1_DE    |
+#&gt; |CA3CB492 |CA3      |CB          |492      |CA3_CB    |
+#&gt; |CA3CB496 |CA3      |CB          |496      |CA3_CB    |
+#&gt; |CA3CB502 |CA3      |CB          |502      |CA3_CB    |
+#&gt; |CA3DE492 |CA3      |DE          |492      |CA3_DE    |
+#&gt; |CA3DE496 |CA3      |DE          |496      |CA3_DE    |
+#&gt; |CA3DE502 |CA3      |DE          |502      |CA3_DE    |
+#&gt; |DGCB492  |DG       |CB          |492      |DG_CB     |
+#&gt; |DGCB496  |DG       |CB          |496      |DG_CB     |
+#&gt; |DGCB502  |DG       |CB          |502      |DG_CB     |
+#&gt; |DGDE492  |DG       |DE          |492      |DG_DE     |
+#&gt; |DGDE496  |DG       |DE          |496      |DG_DE     |
+#&gt; |DGDE502  |DG       |DE          |502      |DG_DE     |</div><div class='input'>
 <span class='co'>## Assay data matrix for normalized counts</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>assays</a></span>(<span class='no'>farrisGeneSE</span>)<span class='kw'>[[</span><span class='st'>"counts"</span>]]);</div><div class='output co'>#&gt;                 CA2CB492   CA2CB496   CA2CB502 CA2DE492 CA2DE496 CA2DE502
-#&gt; -343C11.2       5.125592  5.5075194  6.7499062 7.892555 6.632026 4.392167
-#&gt; 00R_AC107638.2  0.000000  0.0000000  0.3814014 4.789433 3.625500 4.577885
-#&gt; 00R_Pgap2       0.000000  0.2614108  0.3792121 0.000000 0.000000 0.000000
-#&gt; 0610005C13Rik   3.733125  1.5009798  0.4412405 1.131151 4.405658 5.000691
-#&gt; 0610006L08Rik   0.000000  0.0000000  0.0000000 0.000000 0.000000 0.000000
-#&gt; 0610007P14Rik  10.151877 10.2983772 10.8568017 9.610023 9.658824 9.517425
-#&gt;                 CA1CB492  CA1CB496    CA1CB502  CA1DE492  CA1DE496  CA1DE502
-#&gt; -343C11.2       6.912525  5.735207  6.05669795  5.393926 3.9618802 2.1088010
-#&gt; 00R_AC107638.2  0.000000  0.000000  3.12930078  0.000000 0.0000000 0.0000000
-#&gt; 00R_Pgap2       0.000000  0.000000  0.02389523  0.000000 0.3958771 0.2753541
-#&gt; 0610005C13Rik   1.599389  4.439576  2.70020462  3.158550 0.9273044 6.2195594
-#&gt; 0610006L08Rik   0.000000  0.000000  0.00000000  0.000000 0.0000000 0.0000000
-#&gt; 0610007P14Rik  10.465095 10.094485 10.04557169 10.081736 9.4668697 9.6611932
-#&gt;                  CA3CB492  CA3CB496  CA3CB502 CA3DE492  CA3DE496 CA3DE502
-#&gt; -343C11.2       5.9012222  5.865129  6.233813 7.230335 7.6758413 5.081336
-#&gt; 00R_AC107638.2  0.0000000  0.000000  0.000000 6.925011 0.1730263 0.000000
-#&gt; 00R_Pgap2       0.2260925  0.000000  0.429772 5.221890 0.2015875 0.000000
-#&gt; 0610005C13Rik   0.2042486  4.011457  3.399649 7.013474 2.3532787 1.236412
-#&gt; 0610006L08Rik   0.0000000  0.000000  0.000000 0.000000 0.0000000 0.000000
-#&gt; 0610007P14Rik  10.5046539 10.241662 10.283002 9.552535 9.8617314 9.791313
-#&gt;                 DGCB492  DGCB496  DGCB502  DGDE492    DGDE496  DGDE502
-#&gt; -343C11.2      6.126416 6.635583 5.785136 6.589268 2.87045723 4.544814
-#&gt; 00R_AC107638.2 0.000000 2.113397 0.000000 0.000000 0.00000000 3.614111
-#&gt; 00R_Pgap2      0.000000 0.000000 0.000000 0.000000 0.02607423 0.000000
-#&gt; 0610005C13Rik  5.356292 4.303088 4.565700 2.431196 1.37349373 2.947646
-#&gt; 0610006L08Rik  0.000000 0.000000 0.000000 0.000000 0.00000000 0.000000
-#&gt; 0610007P14Rik  9.897466 9.985364 9.992884 8.695595 9.63679389 8.899735</div></pre>
+<span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressPackageStartupMessages</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>knitr</span>))) {
+   <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/knitr/topics/kable'>kable</a></span>(
+      <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>tail</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>assays</a></span>(<span class='no'>farrisGeneSE</span>)<span class='kw'>[[</span><span class='st'>"counts"</span>]], <span class='fl'>3079</span>), <span class='fl'>10</span>)
+   )
+} <span class='kw'>else</span> {
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>tail</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/head'>head</a></span>(<span class='kw pkg'>SummarizedExperiment</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/SummarizedExperiment/topics/SummarizedExperiment-class'>assays</a></span>(<span class='no'>farrisGeneSE</span>)<span class='kw'>[[</span><span class='st'>"counts"</span>]], <span class='fl'>3079</span>), <span class='fl'>10</span>)
+}</div><div class='output co'>#&gt; 
+#&gt; 
+#&gt; |         |  CA2CB492|  CA2CB496|  CA2CB502|  CA2DE492|  CA2DE496|  CA2DE502|  CA1CB492|  CA1CB496|  CA1CB502|  CA1DE492|  CA1DE496|  CA1DE502|  CA3CB492|  CA3CB496|  CA3CB502|  CA3DE492|  CA3DE496|  CA3DE502|   DGCB492|   DGCB496|   DGCB502|   DGDE492|   DGDE496|   DGDE502|
+#&gt; |:--------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+#&gt; |Amigo1   | 11.788221| 11.911877| 11.932830|  9.569232| 10.573725| 10.256418| 11.752525| 11.214424| 11.312252| 11.475075| 10.639000|  9.610328| 11.795311| 11.561756| 11.723912|  9.967730| 11.514411| 10.071652| 11.515426| 11.459975| 11.529161|  9.946452| 11.219920|  9.750555|
+#&gt; |Amigo2   | 14.289255| 14.058009| 14.357035| 10.189114|  9.764771|  9.527168|  7.812238|  7.241192|  8.526366|  8.492178|  9.472811|  9.132392|  9.826938|  9.756097|  9.568759|  8.737075|  8.966104|  9.600518|  8.313740|  8.417530|  8.347074|  9.467638|  8.668333|  9.076533|
+#&gt; |Amigo3   |  6.872062|  6.536729|  5.191612|  6.957927|  0.000000|  6.080202|  6.884087|  6.247739|  6.482084|  0.000000|  6.248117|  6.704929|  5.498212|  5.692095|  6.587664|  0.000000|  6.595790|  0.000000|  6.616847|  5.911659|  5.595349|  5.423117|  0.000000|  5.571091|
+#&gt; |Ammecr1  |  6.260452|  6.416658|  6.754910|  6.034518|  7.586801|  7.275456|  6.649984|  6.764007|  7.346509|  0.000000|  9.331435|  6.891055|  7.212692|  5.866938|  6.663303|  8.729234|  8.282891|  7.485690|  6.755224|  7.414521|  6.711571|  7.151134|  8.957837|  7.311669|
+#&gt; |Ammecr1l |  9.721498|  9.907029|  9.778428|  9.991201|  9.978755|  9.587771| 10.063778|  9.715232|  9.721717| 10.323631| 11.199652|  9.580129|  9.660760|  9.778464|  9.895509|  9.344508|  9.896869|  9.459963|  9.705875|  9.639385|  9.505102| 10.192027| 10.533754|  9.888044|
+#&gt; |Amn      |  0.000000|  4.398652|  4.802926|  5.474513|  5.608943|  5.390806|  0.000000|  1.539411|  2.652177|  0.000000|  6.006920|  0.000000|  5.308966|  4.118472|  4.413498|  0.000000|  0.000000|  0.000000|  5.480945|  4.193651|  3.798388|  5.562926|  5.092165|  5.357062|
+#&gt; |Amn1     | 10.324317| 10.370562|  9.845639|  9.861057|  8.840841|  9.157939| 10.075279|  9.444744|  9.264037|  9.709497|  6.300475|  9.612447| 10.030505|  9.414175|  9.932386|  9.211777|  9.085315|  9.152905|  8.525869|  8.986494|  9.161191|  9.073315| 10.736147|  9.381018|
+#&gt; |Amot     |  9.777482|  9.208478|  9.767862| 12.542766| 11.746755| 11.902718|  9.697512|  9.531469|  9.754372| 12.228722| 11.930041| 11.833651| 10.397455|  9.779157|  9.961128| 11.908335| 11.970097| 11.769010|  8.810641|  8.698924|  9.029949| 12.112950| 12.567338| 12.034565|
+#&gt; |Amotl1   |  9.522070| 10.198338|  7.256056| 11.293638| 11.748941| 10.654560|  6.231732|  7.410853|  7.114902| 11.887076| 11.454849| 11.002505|  8.893451|  8.496768|  9.317338| 10.812618| 11.228855| 11.024140|  8.847757|  8.582899|  8.707775| 11.815032| 12.292345| 11.234173|
+#&gt; |Amotl2   |  7.538139|  7.101209|  8.172426| 11.284778|  9.590328|  8.587643|  6.689631|  6.728571|  6.042835| 11.836940|  9.460240|  9.869199|  8.022048|  7.368093|  7.296374|  8.879769| 10.364257| 10.277043|  6.797734|  6.442407|  6.686830|  9.631151|  9.846421|  9.230496|</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -223,6 +255,8 @@ after median normalization.</p>
       <li><a href="#source">Source</a></li>
 
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -18,4 +18,9 @@ data(GencodeVM12mm10cdsLength);
 ## Print the first 20 entries
 print(head(GencodeVM12mm10cdsLength, 20));
 }
+\seealso{
+Other Mouse codon usage data: \code{\link{GencodeVM12mm10caiCtLow}},
+  \code{\link{GencodeVM12mm10caiQ1mean}}
+}
+\concept{Mouse codon usage data}
 \keyword{datasets}

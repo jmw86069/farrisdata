@@ -84,16 +84,36 @@ NULL
 #'
 #' @source Farris et al publication.
 #'
+#' @family farrisdata SummarizedExperiment data
+#'
 #' @examples
 #' data(farrisGeneSE);
 #' ## Gene annotation DataFrame
-#' head(SummarizedExperiment::rowData(farrisGeneSE))
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       tail(head(SummarizedExperiment::rowData(farrisGeneSE), 3079), 10)
+#'    )
+#' } else {
+#'    tail(head(SummarizedExperiment::rowData(farrisGeneSE), 3079), 10)
+#' }
 #'
 #' ## Sample annotation DataFrame
-#' head(SummarizedExperiment::colData(farrisGeneSE))
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       SummarizedExperiment::colData(farrisGeneSE)
+#'    )
+#' } else {
+#'    SummarizedExperiment::colData(farrisGeneSE)
+#' }
 #'
 #' ## Assay data matrix for normalized counts
-#' head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]]);
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       tail(head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]], 3079), 10)
+#'    )
+#' } else {
+#'    tail(head(SummarizedExperiment::assays(farrisGeneSE)[["counts"]], 3079), 10)
+#' }
 "farrisGeneSE"
 
 #' Farris et al transcript-level expression data
@@ -170,16 +190,36 @@ NULL
 #'
 #' @source Farris et al publication.
 #'
+#' @family farrisdata SummarizedExperiment data
+#'
 #' @examples
 #' data(farrisTxSE);
 #' ## Transcript-Gene annotation DataFrame
-#' head(SummarizedExperiment::rowData(farrisTxSE))
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       tail(head(SummarizedExperiment::rowData(farrisTxSE), 15385), 10)
+#'    )
+#' } else {
+#'    tail(head(SummarizedExperiment::rowData(farrisTxSE), 15385), 10)
+#' }
 #'
 #' ## Sample annotation DataFrame
-#' head(SummarizedExperiment::colData(farrisTxSE))
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       SummarizedExperiment::colData(farrisTxSE)
+#'    )
+#' } else {
+#'    head(SummarizedExperiment::colData(farrisTxSE));
+#' }
 #'
 #' ## Assay data matrix for normalized TPM
-#' head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]]);
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(
+#'       tail(head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]], 15385), 10)
+#'    )
+#' } else {
+#'    tail(head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]], 15385), 10)
+#' }
 "farrisTxSE"
 
 #' Nakayama adult hippocampal CA1 dendritic genes
@@ -202,6 +242,8 @@ NULL
 #' RNG105/caprin1, an RNA granule protein for dendritic mRNA localization,
 #' is essential for long-term memory formation. eLife 6, e29677.
 #' doi:10.7554/eLife.29677
+#'
+#' @family Reference mouse hippocampus gene lists
 #'
 #' @format character vector of Entrez gene symbols
 #'
@@ -231,6 +273,8 @@ NULL
 #' ribosomes following a novel experience. Nature Communications 5, 4510.
 #' doi:10.1038/ncomms5510
 #'
+#' @family Reference mouse hippocampus gene lists
+#'
 #' @format character vector of Entrez gene symbols
 #'
 #' @examples
@@ -259,6 +303,8 @@ NULL
 #' deep sequencing and high-resolution imag-ing.
 #' Neuron 74, 453–466.
 #' doi:10.1016/j.neuron.2012.02.036
+#'
+#' @family Reference mouse hippocampus gene lists
 #'
 #' @format character vector of Entrez gene symbols
 #'
@@ -295,6 +341,8 @@ NULL
 #' @format integer number of codons where the CAI is 0.5
 #' or lower, named by transcript_name defined in the Gencode
 #' GTF file for vM12.
+#'
+#' @family Mouse codon usage data
 #'
 #' @examples
 #' data(GencodeVM12mm10caiCtLow);
@@ -335,6 +383,8 @@ NULL
 #' named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 #'
+#' @family Mouse codon usage data
+#'
 #' @examples
 #' data(GencodeVM12mm10caiQ1mean);
 #' ## Print the first 20 entries
@@ -348,6 +398,8 @@ NULL
 #' @format numeric vector of CDS length for each
 #' protein-coding transcript as defined in the Gencode
 #' GTF file for vM12.
+#'
+#' @family Mouse codon usage data
 #'
 #' @examples
 #' data(GencodeVM12mm10cdsLength);
@@ -367,6 +419,8 @@ NULL
 #' experiment factors, sample groups, and boolean values TRUE
 #' and FALSE.
 #'
+#' @family Farris et al colors
+#'
 #' @examples
 #' data(colorSub);
 #' print(colorSub);
@@ -380,3 +434,97 @@ NULL
 #'    showColors(colorSubL);
 #' }
 "colorSub"
+
+
+#' Sashimi plot files data.frame for Farris data
+#'
+#' Sashimi plot files data.frame for Farris data
+#'
+#' @format data.frame suitable for use with
+#'    `splicejam::prepareSashimi()` for the `filesDF`
+#'    argument.
+#'
+#' @family Sashimi plot data
+#'
+#' @examples
+#' #farris_sashimi_files_df
+#' base_url <- "https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/";
+#' factor1 <- c("CA1", "CA2", "CA3", "DG");
+#' factor2 <- c("CB", "DE");
+#' junc_suffix <- ".STAR_mm10.combinedJunctions.bed";
+#' junc_urls <- paste0(base_url,
+#'    rep(factor1, each=2),
+#'    "_",
+#'    rep(factor2, 4),
+#'    junc_suffix);
+#' junc_sample_id <- paste(rep(factor1, each=2),
+#'    rep(factor2, 4),
+#'    sep="_");
+#' junc_df <- data.frame(sample_id=junc_sample_id,
+#'    url=junc_urls,
+#'    type="junction");
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(junc_df)
+#' } else {
+#'    junc_df;
+#' }
+#'
+#' bw_factor1 <- c(factor1);
+#' bw_factor2 <- c(factor2);
+#' bw_pre1 <- c("NS50211", "NS50218", "NS50217", "NS50266", "NS50266");
+#' bw_pre2 <- c("492", "496", "502", "492", "502");
+#' bw_strand <- c("pos", "neg");
+#' bw_mid <- rep(c("_1.sickle.merged.cutadapt.STAR_mm10.",
+#'    "-X.STAR_mm10."),
+#'    c(24,16));
+#' bw_suffix <- ".bw";
+#' bw_urls <- paste0(
+#'    rep(bw_pre1, each=8),
+#'    rep(rep(bw_factor1, each=2), 5),
+#'    rep(rep(bw_factor2, 4), 5),
+#'    rep(bw_pre2, each=8),
+#'    bw_mid,
+#'    bw_strand,
+#'    bw_suffix
+#' );
+#' # remove samples for which four replicates were not required
+#' bw_urls <- gsub("^NS50266.*(CA1|CA3|496).*", NA, bw_urls);
+#' # quick view of replicates available
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(as.data.frame(matrix(bw_urls, ncol=5)))
+#' } else {
+#'    as.data.frame(matrix(bw_urls, ncol=5));
+#' }
+#'
+#' # remove NA entries
+#' bw_url <- rmNA(bw_urls);
+#' bw_sample_id <- gsub("^.*(CA[123]|DG)(CB|DE).*", "\\1_\\2",
+#'    bw_url);
+#' bw_df <- data.frame(
+#'    url=paste0(base_url, bw_url),
+#'    sample_id=bw_sample_id,
+#'    type="bw");
+#' bw_df <- bw_df[do.call(order, bw_df[,c(2,1,3)]),];
+#'
+#' farris_sashimi_files_df <- rbind(
+#'    junc_df,
+#'    bw_df);
+#' farris_sashimi_files_df$scale_factor <- 1;
+#' farris_sashimi_files_df$CellType <- factor(
+#'    gsub("_.+", "",
+#'       farris_sashimi_files_df$sample_id),
+#'    levels=factor1);
+#' farris_sashimi_files_df$Compartment <- factor(
+#'    gsub("^.+_", "",
+#'       farris_sashimi_files_df$sample_id),
+#'    levels=factor2);
+#' if (suppressPackageStartupMessages(require(knitr))) {
+#'    knitr::kable(farris_sashimi_files_df)
+#' } else {
+#'    farris_sashimi_files_df;
+#' }
+#'
+#' table(farris_sashimi_files_df[,c("CellType", "Compartment", "type")]);
+#'
+"farris_sashimi_files_df"
+

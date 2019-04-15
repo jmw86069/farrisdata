@@ -31,4 +31,5 @@ if (require(jamba)) {
    showColors(colorSubL);
 }
 }
+\concept{Farris et al colors}
 \keyword{datasets}

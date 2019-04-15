@@ -84,12 +84,34 @@ pseudocounts from Salmon, after median normalization.
 \examples{
 data(farrisTxSE);
 ## Transcript-Gene annotation DataFrame
-head(SummarizedExperiment::rowData(farrisTxSE))
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      tail(head(SummarizedExperiment::rowData(farrisTxSE), 15385), 10)
+   )
+} else {
+   tail(head(SummarizedExperiment::rowData(farrisTxSE), 15385), 10)
+}
 
 ## Sample annotation DataFrame
-head(SummarizedExperiment::colData(farrisTxSE))
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      SummarizedExperiment::colData(farrisTxSE)
+   )
+} else {
+   head(SummarizedExperiment::colData(farrisTxSE));
+}
 
 ## Assay data matrix for normalized TPM
-head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]]);
+if (suppressPackageStartupMessages(require(knitr))) {
+   knitr::kable(
+      tail(head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]], 15385), 10)
+   )
+} else {
+   tail(head(SummarizedExperiment::assays(farrisTxSE)[["tpm"]], 15385), 10)
 }
+}
+\seealso{
+Other farrisdata SummarizedExperiment data: \code{\link{farrisGeneSE}}
+}
+\concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}
