@@ -41,21 +41,20 @@ bw_factor2 <- c(factor2);
 bw_pre1 <- c("NS50211", "NS50218", "NS50217", "NS50266", "NS50266");
 bw_pre2 <- c("492", "496", "502", "492", "502");
 bw_strand <- c("pos", "neg");
-bw_mid <- rep(c("_1.sickle.merged.cutadapt.STAR_mm10.",
-   "-X.STAR_mm10."),
-   c(24,16));
+bw_mid <- c("_1.sickle.merged.cutadapt.STAR_mm10.",
+   "-X.STAR_mm10.");
 bw_suffix <- ".bw";
 bw_urls <- paste0(
-   rep(bw_pre1, each=8),
-   rep(rep(bw_factor1, each=2), 5),
-   rep(rep(bw_factor2, 4), 5),
-   rep(bw_pre2, each=8),
-   bw_mid,
+   rep(bw_pre1, each=16),
+   rep(rep(bw_factor1, each=4), 5),
+   rep(rep(rep(bw_factor2, each=2), 4), 5),
+   rep(bw_pre2, each=16),
+   rep(bw_mid, c(48, 32)),
    bw_strand,
    bw_suffix
 );
 # remove samples for which four replicates were not required
-bw_urls <- gsub("^NS50266.*(CA1|CA3|496).*", NA, bw_urls);
+bw_urls <- gsub("^NS50266.*(CA1|CA3|496|CB).*", NA, bw_urls);
 # quick view of replicates available
 if (suppressPackageStartupMessages(require(knitr))) {
    knitr::kable(as.data.frame(matrix(bw_urls, ncol=5)))

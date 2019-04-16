@@ -1,7 +1,7 @@
 Package: farrisdata
 Type: Package
 Title: Farris et al Mouse Hippocampus RNA-seq data objects
-Version: 0.0.5.900
+Version: 0.0.6.900
 Authors@R: c(
     person(given="James M.", family="Ward",
        email="jmw86069@gmail.com", role=c("aut", "cre")),
@@ -14,12 +14,14 @@ biocViews:
 Imports: SummarizedExperiment
 Suggests: jampack (>= 0.0.5.900),
     splicejam (>= 0.0.7.900),
+    jamba,
     knitr
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Remotes: github::jmw86069/jampack,
-    github::jmw86069/splicejam
+    github::jmw86069/splicejam,
+    github::jmw86069/jamba
 URL: http://github.com/jmw86069/farrisdata
 BugReports: http://github.com/jmw86069/farrisdata/issues
 Roxygen: list(markdown = TRUE)

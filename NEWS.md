@@ -1,3 +1,10 @@
+# version 0.0.6.900
+
+## bug fixes
+
+* Fixed issue with `farris_sashimi_files_df` that generated some
+URL entries which do not exist.
+
 # version 0.0.5.900
 
 ## additions
