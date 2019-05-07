@@ -1,7 +1,7 @@
 Package: farrisdata
 Type: Package
 Title: Farris et al Mouse Hippocampus RNA-seq data objects
-Version: 0.0.6.900
+Version: 0.0.7.900
 Authors@R: c(
     person(given="James M.", family="Ward",
        email="jmw86069@gmail.com", role=c("aut", "cre")),

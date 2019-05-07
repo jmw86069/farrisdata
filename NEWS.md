@@ -1,3 +1,12 @@
+# version 0.0.7.900
+
+## changes
+
+* Changed `farris_sashimi_files_df` to use union bigWig coverage files
+to reduce data bandwidth. Added `scale_factor` values for each coverage
+file and associated splice junction files. Updated the example
+docs to show exactly how the files_df data.frame was created.
+
 # version 0.0.6.900
 
 ## bug fixes

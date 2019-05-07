@@ -38,44 +38,53 @@ if (suppressPackageStartupMessages(require(knitr))) {
 
 bw_factor1 <- c(factor1);
 bw_factor2 <- c(factor2);
-bw_pre1 <- c("NS50211", "NS50218", "NS50217", "NS50266", "NS50266");
-bw_pre2 <- c("492", "496", "502", "492", "502");
+bw_base_url <- paste0(base_url, "union_bigwig/");
 bw_strand <- c("pos", "neg");
-bw_mid <- c("_1.sickle.merged.cutadapt.STAR_mm10.",
-   "-X.STAR_mm10.");
 bw_suffix <- ".bw";
 bw_urls <- paste0(
-   rep(bw_pre1, each=16),
-   rep(rep(bw_factor1, each=4), 5),
-   rep(rep(rep(bw_factor2, each=2), 4), 5),
-   rep(bw_pre2, each=16),
-   rep(bw_mid, c(48, 32)),
+   rep(bw_factor1, each=4),
+   "_",
+   rep(bw_factor2, each=2),
+   ".",
    bw_strand,
    bw_suffix
 );
-# remove samples for which four replicates were not required
-bw_urls <- gsub("^NS50266.*(CA1|CA3|496|CB).*", NA, bw_urls);
-# quick view of replicates available
+bw_scale_factors <- c(
+   CA1_CB=0.971,
+   CA1_DE=0.822,
+   CA2_CB=1.597,
+   CA2_DE=1.077,
+   CA3_CB=1.054,
+   CA3_DE=0.745,
+   DG_CB=0.683,
+   DG_DE=1.222);
+
 if (suppressPackageStartupMessages(require(knitr))) {
    knitr::kable(as.data.frame(matrix(bw_urls, ncol=5)))
 } else {
-   as.data.frame(matrix(bw_urls, ncol=5));
+   as.data.frame(matrix(bw_urls, ncol=4));
 }
 
 # remove NA entries
 bw_url <- rmNA(bw_urls);
-bw_sample_id <- gsub("^.*(CA[123]|DG)(CB|DE).*", "\\\\1_\\\\2",
+bw_sample_id <- gsub("^.*(CA[123]|DG)[_]*(CB|DE).*",
+   "\\\\1_\\\\2",
    bw_url);
 bw_df <- data.frame(
-   url=paste0(base_url, bw_url),
+   url=paste0(bw_base_url, bw_url),
    sample_id=bw_sample_id,
-   type="bw");
+   type="bw",
+   scale_factor=bw_scale_factors[bw_sample_id]);
 bw_df <- bw_df[do.call(order, bw_df[,c(2,1,3)]),];
+
+# Add scale_factor to junc_df
+junc_df$scale_factor <- bw_scale_factors[junc_df$sample_id];
 
 farris_sashimi_files_df <- rbind(
    junc_df,
    bw_df);
-farris_sashimi_files_df$scale_factor <- 1;
+# replace missing scale_factor with 1, should not be necessary
+farris_sashimi_files_df$scale_factor[is.na(farris_sashimi_files_df$scale_factor)] <- 1;
 farris_sashimi_files_df$CellType <- factor(
    gsub("_.+", "",
       farris_sashimi_files_df$sample_id),
