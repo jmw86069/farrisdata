@@ -1,7 +1,7 @@
 Package: farrisdata
 Type: Package
 Title: Farris et al Mouse Hippocampus RNA-seq data objects
-Version: 0.0.7.900
+Version: 0.0.8.900
 Authors@R: c(
     person(given="James M.", family="Ward",
        email="jmw86069@gmail.com", role=c("aut", "cre")),
@@ -11,10 +11,10 @@ Authors@R: c(
 Description: RNA-seq data and analysis steps used in Farris et al.
 Depends: R (>= 3.0.0)
 biocViews:
-Imports: SummarizedExperiment
+Imports: SummarizedExperiment,
+    jamba
 Suggests: jampack (>= 0.0.5.900),
     splicejam (>= 0.0.7.900),
-    jamba,
     knitr
 License: GPL-2
 Encoding: UTF-8

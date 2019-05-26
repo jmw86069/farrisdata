@@ -451,7 +451,7 @@ NULL
 #' base_url <- "https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/";
 #' factor1 <- c("CA1", "CA2", "CA3", "DG");
 #' factor2 <- c("CB", "DE");
-#' junc_suffix <- ".STAR_mm10.combinedJunctions.bed";
+#' junc_suffix <- ".STAR_mm10.combinedJunctions.bed.gz";
 #' junc_urls <- paste0(base_url,
 #'    rep(factor1, each=2),
 #'    "_",
@@ -478,7 +478,7 @@ NULL
 #'    rep(bw_factor1, each=4),
 #'    "_",
 #'    rep(bw_factor2, each=2),
-#'    ".",
+#'    ".union.",
 #'    bw_strand,
 #'    bw_suffix
 #' );
@@ -499,7 +499,7 @@ NULL
 #' }
 #'
 #' # remove NA entries
-#' bw_url <- rmNA(bw_urls);
+#' bw_url <- jamba::rmNA(bw_urls);
 #' bw_sample_id <- gsub("^.*(CA[123]|DG)[_]*(CB|DE).*",
 #'    "\\1_\\2",
 #'    bw_url);

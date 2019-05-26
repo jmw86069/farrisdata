@@ -1,3 +1,13 @@
+# version 0.0.8.900
+
+## changes
+
+* Updated bigWig urls to reference new union coverage files,
+produced using UCSC bigWigMerge, improved over previous
+data using bwtool.
+* Updated splice junction urls to refer to .gz compressed
+files, to improve import speed.
+
 # version 0.0.7.900
 
 ## changes
