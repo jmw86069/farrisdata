@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">farrisdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9.900</span>
       </span>
     </div>
 
@@ -103,6 +103,52 @@
       <small>Source: <a href='https://github.com/jmw86069/farrisdata/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="version-0-0-9-900" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-0-9-900" class="anchor"></a>version 0.0.9.900</h1>
+<div id="changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#changes" class="anchor"></a>changes</h2>
+<ul>
+<li>
+<code>farris_sashimi_files_df</code> was updated to use more accurate <code>scale_factor</code> values, calculated using housekeepers detected from Salmon gene quantification <code>farrisGenesSE</code> and re-calculated using coverage of each gene exon. For junction files, the junction counts annotated to each housekeeper gene were summed and used for normalization. Intermediate data was reviewed using MA-plots created with the “jamma” package on Github: <code>"jmw86069/jamma"</code>.</li>
+</ul>
+</div>
+</div>
+    <div id="version-0-0-8-900" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-0-8-900" class="anchor"></a>version 0.0.8.900</h1>
+<div id="changes-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#changes-1" class="anchor"></a>changes</h2>
+<ul>
+<li>Updated bigWig urls to reference new union coverage files, produced using UCSC bigWigMerge, improved over previous data using bwtool.</li>
+<li>Updated splice junction urls to refer to .gz compressed files, to improve import speed.</li>
+</ul>
+</div>
+</div>
+    <div id="version-0-0-7-900" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-0-7-900" class="anchor"></a>version 0.0.7.900</h1>
+<div id="changes-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#changes-2" class="anchor"></a>changes</h2>
+<ul>
+<li>Changed <code>farris_sashimi_files_df</code> to use union bigWig coverage files to reduce data bandwidth. Added <code>scale_factor</code> values for each coverage file and associated splice junction files. Updated the example docs to show exactly how the files_df data.frame was created.</li>
+</ul>
+</div>
+</div>
+    <div id="version-0-0-6-900" class="section level1">
+<h1 class="page-header">
+<a href="#version-0-0-6-900" class="anchor"></a>version 0.0.6.900</h1>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>bug fixes</h2>
+<ul>
+<li>Fixed issue with <code>farris_sashimi_files_df</code> that generated some URL entries which do not exist.</li>
+</ul>
+</div>
+</div>
     <div id="version-0-0-5-900" class="section level1">
 <h1 class="page-header">
 <a href="#version-0-0-5-900" class="anchor"></a>version 0.0.5.900</h1>
@@ -118,9 +164,9 @@
     <div id="version-0-0-4-900" class="section level1">
 <h1 class="page-header">
 <a href="#version-0-0-4-900" class="anchor"></a>version 0.0.4.900</h1>
-<div id="bug-fixes" class="section level2">
+<div id="bug-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bug-fixes" class="anchor"></a>bug fixes</h2>
+<a href="#bug-fixes-1" class="anchor"></a>bug fixes</h2>
 <ul>
 <li>Added “transcript_id” to colnames(rowData(farrisTxSE))</li>
 </ul>
@@ -129,9 +175,9 @@
     <div id="version-0-0-3-900" class="section level1">
 <h1 class="page-header">
 <a href="#version-0-0-3-900" class="anchor"></a>version 0.0.3.900</h1>
-<div id="bug-fixes-1" class="section level2">
+<div id="bug-fixes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bug-fixes-1" class="anchor"></a>bug fixes</h2>
+<a href="#bug-fixes-2" class="anchor"></a>bug fixes</h2>
 <ul>
 <li>Resolved a small issue in handling negative expression values for normalized TPM data, by adding +1 to all non-zero values. This adjustment ensures that all non-zero TPM values are still positive after normalization, while all values which were originally zero are maintained at zero. Note the TPM thresholds are already adjusted in the jampack Rmarkdown analysis workflow, to accomodate this adjustment.</li>
 </ul>
@@ -181,6 +227,10 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#version-0-0-9-900">0.0.9.900</a></li>
+        <li><a href="#version-0-0-8-900">0.0.8.900</a></li>
+        <li><a href="#version-0-0-7-900">0.0.7.900</a></li>
+        <li><a href="#version-0-0-6-900">0.0.6.900</a></li>
         <li><a href="#version-0-0-5-900">0.0.5.900</a></li>
         <li><a href="#version-0-0-4-900">0.0.4.900</a></li>
         <li><a href="#version-0-0-3-900">0.0.3.900</a></li>

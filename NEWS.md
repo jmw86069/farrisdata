@@ -1,3 +1,16 @@
+# version 0.0.9.900
+
+## changes
+
+* `farris_sashimi_files_df` was updated to use more accurate
+`scale_factor` values, calculated using housekeepers detected
+from Salmon gene quantification `farrisGenesSE` and
+re-calculated using coverage of each gene exon. For
+junction files, the junction counts annotated to each
+housekeeper gene were summed and used for normalization.
+Intermediate data was reviewed using MA-plots created
+with the "jamma" package on Github: `"jmw86069/jamma"`.
+
 # version 0.0.8.900
 
 ## changes

@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">farrisdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.900</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9.900</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ argument.</p>
 <span class='no'>base_url</span> <span class='kw'>&lt;-</span> <span class='st'>"https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/"</span>;
 <span class='no'>factor1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"CA1"</span>, <span class='st'>"CA2"</span>, <span class='st'>"CA3"</span>, <span class='st'>"DG"</span>);
 <span class='no'>factor2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"CB"</span>, <span class='st'>"DE"</span>);
-<span class='no'>junc_suffix</span> <span class='kw'>&lt;-</span> <span class='st'>".STAR_mm10.combinedJunctions.bed"</span>;
+<span class='no'>junc_suffix</span> <span class='kw'>&lt;-</span> <span class='st'>".STAR_mm10.combinedJunctions.bed.gz"</span>;
 <span class='no'>junc_urls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>base_url</span>,
    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>factor1</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span>),
    <span class='st'>"_"</span>,
@@ -136,76 +136,87 @@ argument.</p>
 <span class='no'>junc_sample_id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>factor1</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span>),
    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>factor2</span>, <span class='fl'>4</span>),
    <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>"_"</span>);
+<span class='no'>junc_scale_factors</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>^<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
+   <span class='kw'>CA1_CB</span><span class='kw'>=</span>-<span class='fl'>0.185</span>,
+   <span class='kw'>CA1_DE</span><span class='kw'>=</span><span class='fl'>0.146</span>,
+   <span class='kw'>CA2_CB</span><span class='kw'>=</span>-<span class='fl'>0.241</span>,
+   <span class='kw'>CA2_DE</span><span class='kw'>=</span><span class='fl'>0.765</span>,
+   <span class='kw'>CA3_CB</span><span class='kw'>=</span>-<span class='fl'>0.215</span>,
+   <span class='kw'>CA3_DE</span><span class='kw'>=</span><span class='fl'>0.256</span>,
+   <span class='kw'>DG_CB</span><span class='kw'>=</span>-<span class='fl'>0.376</span>,
+   <span class='kw'>DG_DE</span><span class='kw'>=</span><span class='fl'>0.372</span>);
 <span class='no'>junc_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>sample_id</span><span class='kw'>=</span><span class='no'>junc_sample_id</span>,
    <span class='kw'>url</span><span class='kw'>=</span><span class='no'>junc_urls</span>,
-   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"junction"</span>);
+   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"junction"</span>,
+   <span class='kw'>scale_factor</span><span class='kw'>=</span><span class='no'>junc_scale_factors</span>[<span class='no'>junc_sample_id</span>]);
 <span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressPackageStartupMessages</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>knitr</span>))) {
    <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/knitr/topics/kable'>kable</a></span>(<span class='no'>junc_df</span>)
 } <span class='kw'>else</span> {
    <span class='no'>junc_df</span>;
 }</div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; |sample_id |url                                                                                       |type     |
-#&gt; |:---------|:-----------------------------------------------------------------------------------------|:--------|
-#&gt; |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_CB.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_DE.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_CB.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_DE.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_CB.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_DE.STAR_mm10.combinedJunctions.bed |junction |
-#&gt; |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_CB.STAR_mm10.combinedJunctions.bed  |junction |
-#&gt; |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_DE.STAR_mm10.combinedJunctions.bed  |junction |</div><div class='input'>
+#&gt; |       |sample_id |url                                                                                          |type     | scale_factor|
+#&gt; |:------|:---------|:--------------------------------------------------------------------------------------------|:--------|------------:|
+#&gt; |CA1_CB |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8796491|
+#&gt; |CA1_DE |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.1064974|
+#&gt; |CA2_CB |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8461586|
+#&gt; |CA2_DE |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.6993700|
+#&gt; |CA3_CB |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8615462|
+#&gt; |CA3_DE |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.1941632|
+#&gt; |DG_CB  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_CB.STAR_mm10.combinedJunctions.bed.gz  |junction |    0.7705711|
+#&gt; |DG_DE  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_DE.STAR_mm10.combinedJunctions.bed.gz  |junction |    1.2941457|</div><div class='input'>
 <span class='no'>bw_factor1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>factor1</span>);
 <span class='no'>bw_factor2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>factor2</span>);
-<span class='no'>bw_pre1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"NS50211"</span>, <span class='st'>"NS50218"</span>, <span class='st'>"NS50217"</span>, <span class='st'>"NS50266"</span>, <span class='st'>"NS50266"</span>);
-<span class='no'>bw_pre2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"492"</span>, <span class='st'>"496"</span>, <span class='st'>"502"</span>, <span class='st'>"492"</span>, <span class='st'>"502"</span>);
+<span class='no'>bw_base_url</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>base_url</span>, <span class='st'>"union_bigwig/"</span>);
 <span class='no'>bw_strand</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"pos"</span>, <span class='st'>"neg"</span>);
-<span class='no'>bw_mid</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"_1.sickle.merged.cutadapt.STAR_mm10."</span>,
-   <span class='st'>"-X.STAR_mm10."</span>),
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>24</span>,<span class='fl'>16</span>));
 <span class='no'>bw_suffix</span> <span class='kw'>&lt;-</span> <span class='st'>".bw"</span>;
 <span class='no'>bw_urls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_pre1</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>8</span>),
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_factor1</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span>), <span class='fl'>5</span>),
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_factor2</span>, <span class='fl'>4</span>), <span class='fl'>5</span>),
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_pre2</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>8</span>),
-   <span class='no'>bw_mid</span>,
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_factor1</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>4</span>),
+   <span class='st'>"_"</span>,
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>bw_factor2</span>, <span class='kw'>each</span><span class='kw'>=</span><span class='fl'>2</span>),
+   <span class='st'>".union."</span>,
    <span class='no'>bw_strand</span>,
    <span class='no'>bw_suffix</span>
 );
-<span class='co'># remove samples for which four replicates were not required</span>
-<span class='no'>bw_urls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>(<span class='st'>"^NS50266.*(CA1|CA3|496).*"</span>, <span class='fl'>NA</span>, <span class='no'>bw_urls</span>);
-<span class='co'># quick view of replicates available</span>
+<span class='no'>bw_scale_factors</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>^<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
+   <span class='kw'>CA1_CB</span><span class='kw'>=</span>-<span class='fl'>0.0157</span>,
+   <span class='kw'>CA1_DE</span><span class='kw'>=</span><span class='fl'>0.306</span>,
+   <span class='kw'>CA2_CB</span><span class='kw'>=</span>-<span class='fl'>0.0266</span>,
+   <span class='kw'>CA2_DE</span><span class='kw'>=</span><span class='fl'>0.0947</span>,
+   <span class='kw'>CA3_CB</span><span class='kw'>=</span><span class='fl'>0.00839</span>,
+   <span class='kw'>CA3_DE</span><span class='kw'>=</span><span class='fl'>0.528</span>,
+   <span class='kw'>DG_CB</span><span class='kw'>=</span>-<span class='fl'>0.243</span>,
+   <span class='kw'>DG_DE</span><span class='kw'>=</span>-<span class='fl'>0.283</span>);
+
 <span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressPackageStartupMessages</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>knitr</span>))) {
    <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/knitr/topics/kable'>kable</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='no'>bw_urls</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>5</span>)))
 } <span class='kw'>else</span> {
-   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='no'>bw_urls</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>5</span>));
-}</div><div class='output co'>#&gt; 
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='no'>bw_urls</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>4</span>));
+}</div><div class='output co'>#&gt; <span class='warning'>Warning: data length [16] is not a sub-multiple or multiple of the number of columns [5]</span></div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; |V1                                                        |V2                                                        |V3                                                        |V4                                 |V5                                 |
-#&gt; |:---------------------------------------------------------|:---------------------------------------------------------|:---------------------------------------------------------|:----------------------------------|:----------------------------------|
-#&gt; |NS50211CA1CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50218CA1CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50217CA1CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NA                                 |NA                                 |
-#&gt; |NS50211CA1DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50218CA1DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50217CA1DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NA                                 |NA                                 |
-#&gt; |NS50211CA2CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50218CA2CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50217CA2CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50266CA2CB492-X.STAR_mm10.pos.bw |NS50266CA2CB502-X.STAR_mm10.pos.bw |
-#&gt; |NS50211CA2DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50218CA2DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50217CA2DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50266CA2DE492-X.STAR_mm10.neg.bw |NS50266CA2DE502-X.STAR_mm10.neg.bw |
-#&gt; |NS50211CA3CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50218CA3CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NS50217CA3CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |NA                                 |NA                                 |
-#&gt; |NS50211CA3DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50218CA3DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NS50217CA3DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |NA                                 |NA                                 |
-#&gt; |NS50211DGCB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |NS50218DGCB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |NS50217DGCB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |NS50266DGCB492-X.STAR_mm10.pos.bw  |NS50266DGCB502-X.STAR_mm10.pos.bw  |
-#&gt; |NS50211DGDE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |NS50218DGDE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |NS50217DGDE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |NS50266DGDE492-X.STAR_mm10.neg.bw  |NS50266DGDE502-X.STAR_mm10.neg.bw  |</div><div class='input'>
+#&gt; |V1                  |V2                  |V3                  |V4                 |V5                  |
+#&gt; |:-------------------|:-------------------|:-------------------|:------------------|:-------------------|
+#&gt; |CA1_CB.union.pos.bw |CA2_CB.union.pos.bw |CA3_CB.union.pos.bw |DG_CB.union.pos.bw |CA1_CB.union.pos.bw |
+#&gt; |CA1_CB.union.neg.bw |CA2_CB.union.neg.bw |CA3_CB.union.neg.bw |DG_CB.union.neg.bw |CA1_CB.union.neg.bw |
+#&gt; |CA1_DE.union.pos.bw |CA2_DE.union.pos.bw |CA3_DE.union.pos.bw |DG_DE.union.pos.bw |CA1_DE.union.pos.bw |
+#&gt; |CA1_DE.union.neg.bw |CA2_DE.union.neg.bw |CA3_DE.union.neg.bw |DG_DE.union.neg.bw |CA1_DE.union.neg.bw |</div><div class='input'>
 <span class='co'># remove NA entries</span>
-<span class='no'>bw_url</span> <span class='kw'>&lt;-</span> <span class='fu'>rmNA</span>(<span class='no'>bw_urls</span>);
-<span class='no'>bw_sample_id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>(<span class='st'>"^.*(CA[123]|DG)(CB|DE).*"</span>, <span class='st'>"\\1_\\2"</span>,
+<span class='no'>bw_url</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>jamba</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/jamba/topics/rmNA'>rmNA</a></span>(<span class='no'>bw_urls</span>);
+<span class='no'>bw_sample_id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>(<span class='st'>"^.*(CA[123]|DG)[_]*(CB|DE).*"</span>,
+   <span class='st'>"\\1_\\2"</span>,
    <span class='no'>bw_url</span>);
 <span class='no'>bw_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(
-   <span class='kw'>url</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>base_url</span>, <span class='no'>bw_url</span>),
+   <span class='kw'>url</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>bw_base_url</span>, <span class='no'>bw_url</span>),
    <span class='kw'>sample_id</span><span class='kw'>=</span><span class='no'>bw_sample_id</span>,
-   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"bw"</span>);
+   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"bw"</span>,
+   <span class='kw'>scale_factor</span><span class='kw'>=</span><span class='no'>bw_scale_factors</span>[<span class='no'>bw_sample_id</span>]);
 <span class='no'>bw_df</span> <span class='kw'>&lt;-</span> <span class='no'>bw_df</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/do.call'>do.call</a></span>(<span class='no'>order</span>, <span class='no'>bw_df</span>[,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>1</span>,<span class='fl'>3</span>)]),];
 
 <span class='no'>farris_sashimi_files_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>rbind</a></span>(
    <span class='no'>junc_df</span>,
    <span class='no'>bw_df</span>);
-<span class='no'>farris_sashimi_files_df</span>$<span class='no'>scale_factor</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>;
+<span class='co'># replace missing scale_factor with 1, should not be necessary</span>
+<span class='no'>farris_sashimi_files_df</span>$<span class='no'>scale_factor</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NA'>is.na</a></span>(<span class='no'>farris_sashimi_files_df</span>$<span class='no'>scale_factor</span>)] <span class='kw'>&lt;-</span> <span class='fl'>1</span>;
 <span class='no'>farris_sashimi_files_df</span>$<span class='no'>CellType</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(
    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>(<span class='st'>"_.+"</span>, <span class='st'>""</span>,
       <span class='no'>farris_sashimi_files_df</span>$<span class='no'>sample_id</span>),
@@ -220,48 +231,32 @@ argument.</p>
    <span class='no'>farris_sashimi_files_df</span>;
 }</div><div class='output co'>#&gt; 
 #&gt; 
-#&gt; |    |sample_id |url                                                                                                          |type     | scale_factor|CellType |Compartment |
-#&gt; |:---|:---------|:------------------------------------------------------------------------------------------------------------|:--------|------------:|:--------|:-----------|
-#&gt; |1   |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_CB.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA1      |CB          |
-#&gt; |2   |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_DE.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA1      |DE          |
-#&gt; |3   |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_CB.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA2      |CB          |
-#&gt; |4   |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_DE.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA2      |DE          |
-#&gt; |5   |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_CB.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA3      |CB          |
-#&gt; |6   |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_DE.STAR_mm10.combinedJunctions.bed                    |junction |            1|CA3      |DE          |
-#&gt; |7   |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_CB.STAR_mm10.combinedJunctions.bed                     |junction |            1|DG       |CB          |
-#&gt; |8   |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_DE.STAR_mm10.combinedJunctions.bed                     |junction |            1|DG       |DE          |
-#&gt; |110 |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA1CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA1      |CB          |
-#&gt; |17  |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA1CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA1      |CB          |
-#&gt; |9   |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA1CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA1      |CB          |
-#&gt; |210 |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA1DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA1      |DE          |
-#&gt; |18  |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA1DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA1      |DE          |
-#&gt; |10  |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA1DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA1      |DE          |
-#&gt; |33  |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA2CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA2      |CB          |
-#&gt; |19  |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA2CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA2      |CB          |
-#&gt; |11  |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA2CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA2      |CB          |
-#&gt; |25  |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266CA2CB492-X.STAR_mm10.pos.bw                        |bw       |            1|CA2      |CB          |
-#&gt; |29  |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266CA2CB502-X.STAR_mm10.pos.bw                        |bw       |            1|CA2      |CB          |
-#&gt; |41  |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA2DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA2      |DE          |
-#&gt; |20  |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA2DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA2      |DE          |
-#&gt; |12  |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA2DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA2      |DE          |
-#&gt; |26  |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266CA2DE492-X.STAR_mm10.neg.bw                        |bw       |            1|CA2      |DE          |
-#&gt; |30  |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266CA2DE502-X.STAR_mm10.neg.bw                        |bw       |            1|CA2      |DE          |
-#&gt; |51  |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA3CB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA3      |CB          |
-#&gt; |21  |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA3CB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA3      |CB          |
-#&gt; |13  |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA3CB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw |bw       |            1|CA3      |CB          |
-#&gt; |61  |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211CA3DE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA3      |DE          |
-#&gt; |22  |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217CA3DE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA3      |DE          |
-#&gt; |14  |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218CA3DE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw |bw       |            1|CA3      |DE          |
-#&gt; |71  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211DGCB492_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |bw       |            1|DG       |CB          |
-#&gt; |23  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217DGCB502_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |bw       |            1|DG       |CB          |
-#&gt; |15  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218DGCB496_1.sickle.merged.cutadapt.STAR_mm10.pos.bw  |bw       |            1|DG       |CB          |
-#&gt; |27  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266DGCB492-X.STAR_mm10.pos.bw                         |bw       |            1|DG       |CB          |
-#&gt; |31  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266DGCB502-X.STAR_mm10.pos.bw                         |bw       |            1|DG       |CB          |
-#&gt; |81  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50211DGDE492_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |bw       |            1|DG       |DE          |
-#&gt; |24  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50217DGDE502_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |bw       |            1|DG       |DE          |
-#&gt; |16  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50218DGDE496_1.sickle.merged.cutadapt.STAR_mm10.neg.bw  |bw       |            1|DG       |DE          |
-#&gt; |28  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266DGDE492-X.STAR_mm10.neg.bw                         |bw       |            1|DG       |DE          |
-#&gt; |32  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/NS50266DGDE502-X.STAR_mm10.neg.bw                         |bw       |            1|DG       |DE          |</div><div class='input'>
+#&gt; |       |sample_id |url                                                                                          |type     | scale_factor|CellType |Compartment |
+#&gt; |:------|:---------|:--------------------------------------------------------------------------------------------|:--------|------------:|:--------|:-----------|
+#&gt; |CA1_CB |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8796491|CA1      |CB          |
+#&gt; |CA1_DE |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA1_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.1064974|CA1      |DE          |
+#&gt; |CA2_CB |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8461586|CA2      |CB          |
+#&gt; |CA2_DE |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA2_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.6993700|CA2      |DE          |
+#&gt; |CA3_CB |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_CB.STAR_mm10.combinedJunctions.bed.gz |junction |    0.8615462|CA3      |CB          |
+#&gt; |CA3_DE |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/CA3_DE.STAR_mm10.combinedJunctions.bed.gz |junction |    1.1941632|CA3      |DE          |
+#&gt; |DG_CB  |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_CB.STAR_mm10.combinedJunctions.bed.gz  |junction |    0.7705711|DG       |CB          |
+#&gt; |DG_DE  |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/DG_DE.STAR_mm10.combinedJunctions.bed.gz  |junction |    1.2941457|DG       |DE          |
+#&gt; |2      |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA1_CB.union.neg.bw          |bw       |    0.9891766|CA1      |CB          |
+#&gt; |1      |CA1_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA1_CB.union.pos.bw          |bw       |    0.9891766|CA1      |CB          |
+#&gt; |4      |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA1_DE.union.neg.bw          |bw       |    1.2362753|CA1      |DE          |
+#&gt; |3      |CA1_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA1_DE.union.pos.bw          |bw       |    1.2362753|CA1      |DE          |
+#&gt; |6      |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA2_CB.union.neg.bw          |bw       |    0.9817312|CA2      |CB          |
+#&gt; |5      |CA2_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA2_CB.union.pos.bw          |bw       |    0.9817312|CA2      |CB          |
+#&gt; |8      |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA2_DE.union.neg.bw          |bw       |    1.0678433|CA2      |DE          |
+#&gt; |7      |CA2_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA2_DE.union.pos.bw          |bw       |    1.0678433|CA2      |DE          |
+#&gt; |10     |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA3_CB.union.neg.bw          |bw       |    1.0058324|CA3      |CB          |
+#&gt; |9      |CA3_CB    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA3_CB.union.pos.bw          |bw       |    1.0058324|CA3      |CB          |
+#&gt; |12     |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA3_DE.union.neg.bw          |bw       |    1.4419289|CA3      |DE          |
+#&gt; |11     |CA3_DE    |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/CA3_DE.union.pos.bw          |bw       |    1.4419289|CA3      |DE          |
+#&gt; |14     |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/DG_CB.union.neg.bw           |bw       |    0.8449864|DG       |CB          |
+#&gt; |13     |DG_CB     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/DG_CB.union.pos.bw           |bw       |    0.8449864|DG       |CB          |
+#&gt; |16     |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/DG_DE.union.neg.bw           |bw       |    0.8218802|DG       |DE          |
+#&gt; |15     |DG_DE     |https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/union_bigwig/DG_DE.union.pos.bw           |bw       |    0.8218802|DG       |DE          |</div><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>table</a></span>(<span class='no'>farris_sashimi_files_df</span>[,<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"CellType"</span>, <span class='st'>"Compartment"</span>, <span class='st'>"type"</span>)]);</div><div class='output co'>#&gt; , , type = junction
 #&gt; 
 #&gt;         Compartment
@@ -275,10 +270,10 @@ argument.</p>
 #&gt; 
 #&gt;         Compartment
 #&gt; CellType CB DE
-#&gt;      CA1  3  3
-#&gt;      CA2  5  5
-#&gt;      CA3  3  3
-#&gt;      DG   5  5
+#&gt;      CA1  2  2
+#&gt;      CA2  2  2
+#&gt;      CA3  2  2
+#&gt;      DG   2  2
 #&gt; </div><div class='input'>
 </div></pre>
   </div>

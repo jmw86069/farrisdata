@@ -27,9 +27,19 @@ junc_urls <- paste0(base_url,
 junc_sample_id <- paste(rep(factor1, each=2),
    rep(factor2, 4),
    sep="_");
+junc_scale_factors <- 2^c(
+   CA1_CB=-0.185,
+   CA1_DE=0.146,
+   CA2_CB=-0.241,
+   CA2_DE=0.765,
+   CA3_CB=-0.215,
+   CA3_DE=0.256,
+   DG_CB=-0.376,
+   DG_DE=0.372);
 junc_df <- data.frame(sample_id=junc_sample_id,
    url=junc_urls,
-   type="junction");
+   type="junction",
+   scale_factor=junc_scale_factors[junc_sample_id]);
 if (suppressPackageStartupMessages(require(knitr))) {
    knitr::kable(junc_df)
 } else {
@@ -49,15 +59,15 @@ bw_urls <- paste0(
    bw_strand,
    bw_suffix
 );
-bw_scale_factors <- c(
-   CA1_CB=0.971,
-   CA1_DE=0.822,
-   CA2_CB=1.597,
-   CA2_DE=1.077,
-   CA3_CB=1.054,
-   CA3_DE=0.745,
-   DG_CB=0.683,
-   DG_DE=1.222);
+bw_scale_factors <- 2^c(
+   CA1_CB=-0.0157,
+   CA1_DE=0.306,
+   CA2_CB=-0.0266,
+   CA2_DE=0.0947,
+   CA3_CB=0.00839,
+   CA3_DE=0.528,
+   DG_CB=-0.243,
+   DG_DE=-0.283);
 
 if (suppressPackageStartupMessages(require(knitr))) {
    knitr::kable(as.data.frame(matrix(bw_urls, ncol=5)))
@@ -76,9 +86,6 @@ bw_df <- data.frame(
    type="bw",
    scale_factor=bw_scale_factors[bw_sample_id]);
 bw_df <- bw_df[do.call(order, bw_df[,c(2,1,3)]),];
-
-# Add scale_factor to junc_df
-junc_df$scale_factor <- bw_scale_factors[junc_df$sample_id];
 
 farris_sashimi_files_df <- rbind(
    junc_df,
