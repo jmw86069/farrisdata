@@ -22,3 +22,7 @@ reference:
   desc: Custom categorical colors used in Farris et al figures
   contents:
   - has_concept("Farris et al colors")
+- title: Gene set enrichment data
+  desc: Gene set enrichment stats results.
+  contents:
+  - has_concept("Farris enrichment data")

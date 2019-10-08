@@ -1,3 +1,11 @@
+# version 0.0.10.900
+
+## changes
+
+* Added `EnrichmentDFL` which is a list of 12 `data.frame`
+objects which each contain gene set enrichment stats
+results.
+
 # version 0.0.9.900
 
 ## changes
