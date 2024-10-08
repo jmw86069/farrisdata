@@ -4,7 +4,24 @@
 \name{EnrichmentDFL}
 \alias{EnrichmentDFL}
 \title{Farris et al gene set enrichment data.frames}
-\format{An object of class \code{list} of length 12.}
+\format{
+\code{list} of \code{data.frame} objects each with these columns:
+\itemize{
+\item \code{"Comparison"} - \code{character} string indicating the statistical
+comparison, and direction of change.
+\item \code{"P-value"} - \code{numeric} adjusted enrichment P-value.
+\item \code{"pathGenes"} - \code{integer} number of detected genes in each pathway.
+\item \code{"geneHits"} - \code{integer} number of gene hits in each pathway.
+\item \code{"itemsetID"} - \code{character} identifier for each pathway
+\item \code{"Source"} - \code{character} source for each pathway, using MSigDB
+subcategory where applicable.
+\item \code{"Name"} - short name for each gene set or pathway.
+\item \code{"Description"} - long description for each gene set of pathway.
+\item \code{"Category"} - \code{character} string using MSigDB category.
+\item \code{"geneNames"} - \code{character} comma-delimited gene symbols including
+the number of genes in \code{"geneHits"}.
+}
+}
 \source{
 Farris et al 2019
 }

@@ -3,7 +3,6 @@
 \docType{package}
 \name{farrisdata}
 \alias{farrisdata}
-\alias{farrisdata-package}
 \title{farrisdata: Farris et al RNA-seq data}
 \description{
 Supporting data for Farris et al Mouse hippocampus
@@ -14,6 +13,24 @@ package.
 These objects are provided as \code{SummarizedExperiment}
 objects as described in the Bioconductor package
 \code{\link[SummarizedExperiment]{SummarizedExperiment}}.
+
+All gene symbols were updated to the most recent annotations
+available at the time of publication (2019) and should be updated
+again for comparison with analysis results produced after
+that time. One option is to use Github R package \code{"jmw86069/genejam"}
+which relies upon Bioconductor gene annotation packages
+such as \code{"org.Mm.eg.db"} (mouse), used with argument:
+\code{ann_lib="org.Mm.eg.db"}. An example command:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{Ainsley_gdf <- genejam::freshenGenes3(AinsleyGenes,
+   ann_lib="org.Mm.eg.db",
+   intermediate="ENTREZID",
+   include_source=TRUE,
+   empty_rule="original")
+}\if{html}{\out{</div>}}
+
+As of October 2024, only one gene symbol was not found:
+\code{"AI314180"}. All other gene symbols were correctly identified.
 }
 \section{Available data}{
 

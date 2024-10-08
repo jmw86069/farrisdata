@@ -9,6 +9,25 @@
 #' objects as described in the Bioconductor package
 #' \code{\link[SummarizedExperiment]{SummarizedExperiment}}.
 #'
+#' All gene symbols were updated to the most recent annotations
+#' available at the time of publication (2019) and should be updated
+#' again for comparison with analysis results produced after
+#' that time. One option is to use Github R package `"jmw86069/genejam"`
+#' which relies upon Bioconductor gene annotation packages
+#' such as `"org.Mm.eg.db"` (mouse), used with argument:
+#' `ann_lib="org.Mm.eg.db"`. An example command:
+#'
+#' ```
+#' Ainsley_gdf <- genejam::freshenGenes3(AinsleyGenes,
+#'    ann_lib="org.Mm.eg.db",
+#'    intermediate="ENTREZID",
+#'    include_source=TRUE,
+#'    empty_rule="original")
+#' ```
+#'
+#' As of October 2024, only one gene symbol was not found:
+#' `"AI314180"`. All other gene symbols were correctly identified.
+#'
 #' @section Available data:
 #'    \code{\link[farrisdata]{farrisGeneSE}},
 #'    \code{\link{farrisTxSE}}
@@ -45,7 +64,7 @@ NULL
 #' Data is stored as log2-transformed pseudocounts from Salmon,
 #' after median normalization.
 #'
-#' @format SummarizedExperiment object with 49341 gene rows, and 24
+#' @format `SummarizedExperiment` object with 49341 gene rows, and 24
 #' sample columns. Sample annotations are accessed as described
 #' for \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 #' objects, using `SummarizedExperiment::colData()`.
@@ -126,7 +145,7 @@ NULL
 #' Data is stored as log2-transformed TPM, and log2-transformed
 #' pseudocounts from Salmon, after median normalization.
 #'
-#' @format SummarizedExperiment object with 122733 transcript rows, and 24
+#' @format `SummarizedExperiment` object with 122733 transcript rows, and 24
 #' sample columns. Sample annotations are accessed as described
 #' for \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 #' objects, using `SummarizedExperiment::colData()`. Transcript and gene
@@ -245,7 +264,7 @@ NULL
 #'
 #' @family Reference mouse hippocampus gene lists
 #'
-#' @format character vector of Entrez gene symbols
+#' @format `character` vector of Entrez gene symbols
 #'
 #' @examples
 #' data(NakayamaGenes);
@@ -275,7 +294,7 @@ NULL
 #'
 #' @family Reference mouse hippocampus gene lists
 #'
-#' @format character vector of Entrez gene symbols
+#' @format `character` vector of Entrez gene symbols
 #'
 #' @examples
 #' data(AinsleyGenes);
@@ -306,7 +325,7 @@ NULL
 #'
 #' @family Reference mouse hippocampus gene lists
 #'
-#' @format character vector of Entrez gene symbols
+#' @format `character` vector of Entrez gene symbols
 #'
 #' @examples
 #' data(CajigasGenes);
@@ -318,7 +337,7 @@ NULL
 #'
 #' Codon Adaptability Index for Gencode mouse mm10 vM12
 #'
-#' @format numeric vector of codon adaptability index (cai)
+#' @format `numeric` vector of codon adaptability index (cai)
 #' values named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 #'
@@ -338,7 +357,7 @@ NULL
 #' codon is no more than 50% the maximum codon for a given
 #' amino acid.
 #'
-#' @format integer number of codons where the CAI is 0.5
+#' @format `integer` number of codons where the CAI is 0.5
 #' or lower, named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 #'
@@ -360,7 +379,7 @@ NULL
 #' codon is no more than 30% the maximum codon for a given
 #' amino acid.
 #'
-#' @format integer number of codons where the CAI is 0.3
+#' @format `integer` number of codons where the CAI is 0.3
 #' or lower, named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 #'
@@ -378,7 +397,7 @@ NULL
 #' data, summarized to represent the mean of the lowest quartile
 #' of CAI values per transcript.
 #'
-#' @format numeric vector with the mean CAI value from the lowest
+#' @format `numeric` vector with the mean CAI value from the lowest
 #' quartile of CAI values per transcript,
 #' named by transcript_name defined in the Gencode
 #' GTF file for vM12.
@@ -395,7 +414,7 @@ NULL
 #'
 #' CDS length for Gencode mouse mm10 vM12
 #'
-#' @format numeric vector of CDS length for each
+#' @format `numeric` vector of CDS length for each
 #' protein-coding transcript as defined in the Gencode
 #' GTF file for vM12.
 #'
@@ -415,7 +434,7 @@ NULL
 #' named by the experimental factors, the sample groups,
 #' and boolean TRUE and FALSE.
 #'
-#' @format character vector of R color names, named by the
+#' @format `character` vector of R color names, named by the
 #' experiment factors, sample groups, and boolean values TRUE
 #' and FALSE.
 #'
@@ -440,15 +459,31 @@ NULL
 #'
 #' Sashimi plot files data.frame for Farris data
 #'
-#' @format data.frame suitable for use with
+#'
+#'
+#' @format `data.frame` suitable for use with
 #'    `splicejam::prepareSashimi()` for the `filesDF`
-#'    argument.
+#'    argument. The columns:
+#'    * `"sample_id"` - sample label used for each panel in the Sashimi plot
+#'    * `"url"` - full web URL or file path (relative or absolute, from the
+#'    working directory of the R-shiny app) to each file. It should
+#'    contain `.bed.gz` files for junctions, and big wig files for
+#'    coverage data, using `.pos.bw` for positive strand coverage, and
+#'    `.neg.bw` for negative strand coverage, where applicable.
+#'    * `"type"` - character string indicating the type of data, using
+#'    `"junction"` or `"bw"`.
+#'    * `"scale_factor"` - optional column with `numeric` value
+#'    to adjust the coverage data value, by multiplying the scale factor.
+#'    The default scale factor is `1`.
+#'    * `"CellType"`,`"Compartment"` - additional columns are used
+#'    in the sample selection HTML widget to help organize and sort
+#'    samples as appropriate.
 #'
 #' @family Sashimi plot data
 #'
 #' @examples
 #' #farris_sashimi_files_df
-#' base_url <- "https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/";
+#' base_url <- "https://snpinfo.niehs.nih.gov/ucscview/farrisHub/mm10/";
 #' factor1 <- c("CA1", "CA2", "CA3", "DG");
 #' factor2 <- c("CB", "DE");
 #' junc_suffix <- ".STAR_mm10.combinedJunctions.bed.gz";

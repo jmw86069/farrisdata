@@ -4,7 +4,9 @@
 \name{NakayamaGenes}
 \alias{NakayamaGenes}
 \title{Nakayama adult hippocampal CA1 dendritic genes}
-\format{character vector of Entrez gene symbols}
+\format{
+\code{character} vector of Entrez gene symbols
+}
 \source{
 Nakayama, K., Ohashi, R., Shinoda, Y., Yamazaki, M., Abe, M.,
 Fujikawa, A., Shigenobu, S., Futatsugi, A., Noda, M., Mikoshiba, K.,
@@ -25,7 +27,7 @@ dendrites.
 
 Gene symbols were updated using Bioconductor package
 \code{org.Mm.eg.db}, using the reported \code{gene_name} or
-\code{Entrez Gene ID} from the supplemental data. This step was performed
+\verb{Entrez Gene ID} from the supplemental data. This step was performed
 in order to ensure each reference dataset, including the Farris et al.
 data, were using the same version of the gene symbol annotations.
 }
@@ -35,8 +37,9 @@ data(NakayamaGenes);
 print(head(NakayamaGenes, 50));
 }
 \seealso{
-Other Reference mouse hippocampus gene lists: \code{\link{AinsleyGenes}},
-  \code{\link{CajigasGenes}}
+Other Reference mouse hippocampus gene lists: 
+\code{\link{AinsleyGenes}},
+\code{\link{CajigasGenes}}
 }
 \concept{Reference mouse hippocampus gene lists}
 \keyword{datasets}

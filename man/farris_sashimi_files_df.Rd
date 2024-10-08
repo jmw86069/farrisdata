@@ -4,9 +4,27 @@
 \name{farris_sashimi_files_df}
 \alias{farris_sashimi_files_df}
 \title{Sashimi plot files data.frame for Farris data}
-\format{data.frame suitable for use with
+\format{
+\code{data.frame} suitable for use with
 \code{splicejam::prepareSashimi()} for the \code{filesDF}
-argument.}
+argument. The columns:
+\itemize{
+\item \code{"sample_id"} - sample label used for each panel in the Sashimi plot
+\item \code{"url"} - full web URL or file path (relative or absolute, from the
+working directory of the R-shiny app) to each file. It should
+contain \code{.bed.gz} files for junctions, and big wig files for
+coverage data, using \code{.pos.bw} for positive strand coverage, and
+\code{.neg.bw} for negative strand coverage, where applicable.
+\item \code{"type"} - character string indicating the type of data, using
+\code{"junction"} or \code{"bw"}.
+\item \code{"scale_factor"} - optional column with \code{numeric} value
+to adjust the coverage data value, by multiplying the scale factor.
+The default scale factor is \code{1}.
+\item \code{"CellType"},\code{"Compartment"} - additional columns are used
+in the sample selection HTML widget to help organize and sort
+samples as appropriate.
+}
+}
 \usage{
 farris_sashimi_files_df
 }
@@ -15,7 +33,7 @@ Sashimi plot files data.frame for Farris data
 }
 \examples{
 #farris_sashimi_files_df
-base_url <- "https://orio.niehs.nih.gov/ucscview/farrisHub/mm10/";
+base_url <- "https://snpinfo.niehs.nih.gov/ucscview/farrisHub/mm10/";
 factor1 <- c("CA1", "CA2", "CA3", "DG");
 factor2 <- c("CB", "DE");
 junc_suffix <- ".STAR_mm10.combinedJunctions.bed.gz";

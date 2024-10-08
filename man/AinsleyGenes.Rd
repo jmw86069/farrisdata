@@ -4,7 +4,9 @@
 \name{AinsleyGenes}
 \alias{AinsleyGenes}
 \title{Ainsley adult hippocampal CA1 dendritic genes}
-\format{character vector of Entrez gene symbols}
+\format{
+\code{character} vector of Entrez gene symbols
+}
 \source{
 Ainsley, J.A., Drane, L., Jacobs, J., Kittelberger, K.A.,
 Reijmers, L.G., 2014.
@@ -24,7 +26,7 @@ dendrites.
 
 Gene symbols were updated using Bioconductor package
 \code{org.Mm.eg.db}, using the reported \code{gene_name} or
-\code{Entrez Gene ID} from the supplemental data. This step was performed
+\verb{Entrez Gene ID} from the supplemental data. This step was performed
 in order to ensure each reference dataset, including the Farris et al.
 data, were using the same version of the gene symbol annotations.
 }
@@ -34,8 +36,9 @@ data(AinsleyGenes);
 print(head(AinsleyGenes, 50));
 }
 \seealso{
-Other Reference mouse hippocampus gene lists: \code{\link{CajigasGenes}},
-  \code{\link{NakayamaGenes}}
+Other Reference mouse hippocampus gene lists: 
+\code{\link{CajigasGenes}},
+\code{\link{NakayamaGenes}}
 }
 \concept{Reference mouse hippocampus gene lists}
 \keyword{datasets}

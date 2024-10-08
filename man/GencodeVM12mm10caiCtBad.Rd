@@ -4,9 +4,11 @@
 \name{GencodeVM12mm10caiCtBad}
 \alias{GencodeVM12mm10caiCtBad}
 \title{Count of Bad CAI codons for Gencode mouse mm10 vM12}
-\format{integer number of codons where the CAI is 0.3
+\format{
+\code{integer} number of codons where the CAI is 0.3
 or lower, named by transcript_name defined in the Gencode
-GTF file for vM12.}
+GTF file for vM12.
+}
 \usage{
 GencodeVM12mm10caiCtBad
 }
@@ -17,7 +19,7 @@ Count of Bad CAI codons for Gencode mouse mm10 vM12
 This data is derived from codon adaptability index (CAI)
 data, summarized to count the number of residues where
 the CAI value is 0.3 or lower. This value indicates the
-codon is no more than 30% the maximum codon for a given
+codon is no more than 30\% the maximum codon for a given
 amino acid.
 }
 \examples{

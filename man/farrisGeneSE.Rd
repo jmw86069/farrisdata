@@ -4,7 +4,8 @@
 \name{farrisGeneSE}
 \alias{farrisGeneSE}
 \title{Farris et al gene-level expression data}
-\format{SummarizedExperiment object with 49341 gene rows, and 24
+\format{
+\code{SummarizedExperiment} object with 49341 gene rows, and 24
 sample columns. Sample annotations are accessed as described
 for \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 objects, using \code{SummarizedExperiment::colData()}.
@@ -39,7 +40,8 @@ log2(1+x).}
 }
 
 The rowData contains gene annotations, in this case limited to
-the Entrez gene symbol.}
+the Entrez gene symbol.
+}
 \source{
 Farris et al publication.
 }
@@ -86,7 +88,8 @@ if (suppressPackageStartupMessages(require(knitr))) {
 }
 }
 \seealso{
-Other farrisdata SummarizedExperiment data: \code{\link{farrisTxSE}}
+Other farrisdata SummarizedExperiment data: 
+\code{\link{farrisTxSE}}
 }
 \concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}

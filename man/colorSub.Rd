@@ -4,9 +4,11 @@
 \name{colorSub}
 \alias{colorSub}
 \title{Group colors used for Farris data}
-\format{character vector of R color names, named by the
+\format{
+\code{character} vector of R color names, named by the
 experiment factors, sample groups, and boolean values TRUE
-and FALSE.}
+and FALSE.
+}
 \usage{
 colorSub
 }

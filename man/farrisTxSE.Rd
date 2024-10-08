@@ -4,7 +4,8 @@
 \name{farrisTxSE}
 \alias{farrisTxSE}
 \title{Farris et al transcript-level expression data}
-\format{SummarizedExperiment object with 122733 transcript rows, and 24
+\format{
+\code{SummarizedExperiment} object with 122733 transcript rows, and 24
 sample columns. Sample annotations are accessed as described
 for \code{\link[SummarizedExperiment]{SummarizedExperiment-class}}
 objects, using \code{SummarizedExperiment::colData()}. Transcript and gene
@@ -64,7 +65,8 @@ by observed RNA-seq coverage.}
 \item{TxDetectedByTPM}{Boolean indicating whether each transcript
 was considered "detected" based upon TPM and count data per gene,
 as described in \code{splicejam::defineDetectedTx()}.}
-}}
+}
+}
 \source{
 Farris et al publication.
 }
@@ -111,7 +113,8 @@ if (suppressPackageStartupMessages(require(knitr))) {
 }
 }
 \seealso{
-Other farrisdata SummarizedExperiment data: \code{\link{farrisGeneSE}}
+Other farrisdata SummarizedExperiment data: 
+\code{\link{farrisGeneSE}}
 }
 \concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}

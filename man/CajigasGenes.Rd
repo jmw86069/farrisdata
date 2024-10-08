@@ -4,7 +4,9 @@
 \name{CajigasGenes}
 \alias{CajigasGenes}
 \title{Cajigas rat hippocampal CA1 dendritic genes}
-\format{character vector of Entrez gene symbols}
+\format{
+\code{character} vector of Entrez gene symbols
+}
 \source{
 Cajigas, I.J., Tushev, G., Will, T.J., tom Dieck, S., Fuerst, N.,
 Schuman, E.M., 2012.
@@ -25,7 +27,7 @@ dendrites.
 
 Gene symbols were updated using Bioconductor package
 \code{org.Rn.eg.db}, using the reported \code{gene_name} or
-\code{Entrez Gene ID} from the supplemental data. This step was performed
+\verb{Entrez Gene ID} from the supplemental data. This step was performed
 in order to ensure each reference dataset, including the Farris et al.
 data, were using the same version of the gene symbol annotations.
 }
@@ -35,8 +37,9 @@ data(CajigasGenes);
 print(head(CajigasGenes, 50));
 }
 \seealso{
-Other Reference mouse hippocampus gene lists: \code{\link{AinsleyGenes}},
-  \code{\link{NakayamaGenes}}
+Other Reference mouse hippocampus gene lists: 
+\code{\link{AinsleyGenes}},
+\code{\link{NakayamaGenes}}
 }
 \concept{Reference mouse hippocampus gene lists}
 \keyword{datasets}

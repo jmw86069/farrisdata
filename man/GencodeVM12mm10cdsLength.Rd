@@ -4,9 +4,11 @@
 \name{GencodeVM12mm10cdsLength}
 \alias{GencodeVM12mm10cdsLength}
 \title{CDS length for Gencode mouse mm10 vM12}
-\format{numeric vector of CDS length for each
+\format{
+\code{numeric} vector of CDS length for each
 protein-coding transcript as defined in the Gencode
-GTF file for vM12.}
+GTF file for vM12.
+}
 \usage{
 GencodeVM12mm10cdsLength
 }
@@ -19,8 +21,9 @@ data(GencodeVM12mm10cdsLength);
 print(head(GencodeVM12mm10cdsLength, 20));
 }
 \seealso{
-Other Mouse codon usage data: \code{\link{GencodeVM12mm10caiCtLow}},
-  \code{\link{GencodeVM12mm10caiQ1mean}}
+Other Mouse codon usage data: 
+\code{\link{GencodeVM12mm10caiCtLow}},
+\code{\link{GencodeVM12mm10caiQ1mean}}
 }
 \concept{Mouse codon usage data}
 \keyword{datasets}

@@ -1,3 +1,14 @@
+# version 0.0.11.900
+
+## changes
+
+* `farris_sashimi_files_df` was changed to update the `"url"` values
+to use a new server name `snpinfo.niehs.nih.gov` due to an obscure issue
+with web server certificate verification. The snpinfo certificate
+authority is more globally recognized, without the need to add
+certificate authorities.
+* Minor updates to data object help docs.
+
 # version 0.0.10.900
 
 ## changes

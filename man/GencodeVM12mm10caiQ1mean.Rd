@@ -4,10 +4,12 @@
 \name{GencodeVM12mm10caiQ1mean}
 \alias{GencodeVM12mm10caiQ1mean}
 \title{Mean of Q1 CAI values for Gencode mouse mm10 vM12}
-\format{numeric vector with the mean CAI value from the lowest
+\format{
+\code{numeric} vector with the mean CAI value from the lowest
 quartile of CAI values per transcript,
 named by transcript_name defined in the Gencode
-GTF file for vM12.}
+GTF file for vM12.
+}
 \usage{
 GencodeVM12mm10caiQ1mean
 }
@@ -25,8 +27,9 @@ data(GencodeVM12mm10caiQ1mean);
 print(head(GencodeVM12mm10caiQ1mean, 20));
 }
 \seealso{
-Other Mouse codon usage data: \code{\link{GencodeVM12mm10caiCtLow}},
-  \code{\link{GencodeVM12mm10cdsLength}}
+Other Mouse codon usage data: 
+\code{\link{GencodeVM12mm10caiCtLow}},
+\code{\link{GencodeVM12mm10cdsLength}}
 }
 \concept{Mouse codon usage data}
 \keyword{datasets}

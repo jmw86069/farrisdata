@@ -4,9 +4,11 @@
 \name{GencodeVM12mm10cai}
 \alias{GencodeVM12mm10cai}
 \title{Codon Adaptability Index for Gencode mouse mm10 vM12}
-\format{numeric vector of codon adaptability index (cai)
+\format{
+\code{numeric} vector of codon adaptability index (cai)
 values named by transcript_name defined in the Gencode
-GTF file for vM12.}
+GTF file for vM12.
+}
 \usage{
 GencodeVM12mm10cai
 }

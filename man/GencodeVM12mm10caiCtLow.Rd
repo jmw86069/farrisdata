@@ -4,9 +4,11 @@
 \name{GencodeVM12mm10caiCtLow}
 \alias{GencodeVM12mm10caiCtLow}
 \title{Count of Low CAI codons for Gencode mouse mm10 vM12}
-\format{integer number of codons where the CAI is 0.5
+\format{
+\code{integer} number of codons where the CAI is 0.5
 or lower, named by transcript_name defined in the Gencode
-GTF file for vM12.}
+GTF file for vM12.
+}
 \usage{
 GencodeVM12mm10caiCtLow
 }
@@ -17,7 +19,7 @@ Count of Low CAI codons for Gencode mouse mm10 vM12
 This data is derived from codon adaptability index (CAI)
 data, summarized to count the number of residues where
 the CAI value is 0.5 or lower. This value indicates the
-codon is no more than 50% the maximum codon for a given
+codon is no more than 50\% the maximum codon for a given
 amino acid.
 }
 \examples{
@@ -26,8 +28,9 @@ data(GencodeVM12mm10caiCtLow);
 print(head(GencodeVM12mm10caiCtLow, 20));
 }
 \seealso{
-Other Mouse codon usage data: \code{\link{GencodeVM12mm10caiQ1mean}},
-  \code{\link{GencodeVM12mm10cdsLength}}
+Other Mouse codon usage data: 
+\code{\link{GencodeVM12mm10caiQ1mean}},
+\code{\link{GencodeVM12mm10cdsLength}}
 }
 \concept{Mouse codon usage data}
 \keyword{datasets}

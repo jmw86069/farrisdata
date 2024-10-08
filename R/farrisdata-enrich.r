@@ -15,6 +15,21 @@
 #'
 #' @family Farris enrichment data
 #'
+#' @format `list` of `data.frame` objects each with these columns:
+#'    * `"Comparison"` - `character` string indicating the statistical
+#'    comparison, and direction of change.
+#'    * `"P-value"` - `numeric` adjusted enrichment P-value.
+#'    * `"pathGenes"` - `integer` number of detected genes in each pathway.
+#'    * `"geneHits"` - `integer` number of gene hits in each pathway.
+#'    * `"itemsetID"` - `character` identifier for each pathway
+#'    * `"Source"` - `character` source for each pathway, using MSigDB
+#'    subcategory where applicable.
+#'    * `"Name"` - short name for each gene set or pathway.
+#'    * `"Description"` - long description for each gene set of pathway.
+#'    * `"Category"` - `character` string using MSigDB category.
+#'    * `"geneNames"` - `character` comma-delimited gene symbols including
+#'    the number of genes in `"geneHits"`.
+#'
 #' @examples
 #' data(EnrichmentDFL);
 #'
