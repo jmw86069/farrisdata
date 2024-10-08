@@ -114,7 +114,8 @@ if (suppressPackageStartupMessages(require(knitr))) {
 }
 \seealso{
 Other farrisdata SummarizedExperiment data: 
-\code{\link{farrisGeneSE}}
+\code{\link{farrisGeneSE}},
+\code{\link{farrisdata}}
 }
 \concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}

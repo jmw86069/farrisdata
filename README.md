@@ -1,20 +1,22 @@
 # farrisdata
 
 R package containing gene and transcript expression data
-supporting Farris et al Mouse hippocampal transcriptome
-RNA-seq analysis.
+supporting the [Farris et al 2019 paper](https://doi.org/10.1016/j.celrep.2019.08.093):<br>
+**Hippocampal Subregions Express Distinct Dendritic Transcriptomes that Reveal Differences in Mitochondrial Function in CA2**.<br>
+Cell Rep. 2019 Oct 8;29(2):522-539.e6.<br>
+doi: [10.1016/j.celrep.2019.08.093](https://doi.org/10.1016/j.celrep.2019.08.093).
 
-This data is intended for analysis
-using the `jampack` R package, also available through
-GitHub, see:
+The Splicejam Web App is online:
+[http://splicejam.vtc.vt.edu/](http://splicejam.vtc.vt.edu/)
+
+This `farrisdata` data is intended for analysis using the `jampack` R package,
+which ultimately uses the `splicejam` package for data visualization.
+
+See:
 
 * [https://github.com/jmw86069/jampack](https://github.com/jmw86069/jampack)
-
-This package includes a `data.frame` for use by
-`splicejam::prepareSashimi()` to create Sashimi coverage
-plots of transcriptome RNA-seq data, see:
-
 * [https://github.com/jmw86069/splicejam](https://github.com/jmw86069/splicejam)
+
 
 ## How to install
 
@@ -23,6 +25,19 @@ Install using the R package `remotes` and this command:
 ```
 remotes::install_github("jmw86069/farrisdata")
 ```
+
+## Quick Usage
+
+```
+# install R packages if necessary
+remotes::install_github("jmw86069/farrisdata")
+remotes::install_github("jmw86069/splicejam")
+
+# Run the Splicejam Web Shiny App
+library(splicejam)
+launchSashimiApp()
+```
+
 
 ## Contents
 
@@ -44,7 +59,7 @@ Ainsley et al., 2014, Cajigas et al. 2012).
 Lastly, the package provides a color substitution vector `colorSub`,
 and several vectors with derived transcript features.
 
-## Literature references:
+## Additional Citations:
 
 Nakayama, K., Ohashi, R., Shinoda, Y., Yamazaki, M., Abe, M.,
 Fujikawa, A., Shigenobu, S., Futatsugi, A., Noda, M., Mikoshiba, K.,

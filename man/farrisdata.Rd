@@ -57,3 +57,9 @@ Gencode data is subject to
 see \url{https://creativecommons.org/licenses/by-nc-nd/2.5/}.
 }
 
+\seealso{
+Other farrisdata SummarizedExperiment data: 
+\code{\link{farrisGeneSE}},
+\code{\link{farrisTxSE}}
+}
+\concept{farrisdata SummarizedExperiment data}

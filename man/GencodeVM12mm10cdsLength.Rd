@@ -22,8 +22,10 @@ print(head(GencodeVM12mm10cdsLength, 20));
 }
 \seealso{
 Other Mouse codon usage data: 
+\code{\link{GencodeVM12mm10caiCtBad}},
 \code{\link{GencodeVM12mm10caiCtLow}},
-\code{\link{GencodeVM12mm10caiQ1mean}}
+\code{\link{GencodeVM12mm10caiQ1mean}},
+\code{\link{GencodeVM12mm10cai}}
 }
 \concept{Mouse codon usage data}
 \keyword{datasets}

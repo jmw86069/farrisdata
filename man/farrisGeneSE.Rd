@@ -89,7 +89,8 @@ if (suppressPackageStartupMessages(require(knitr))) {
 }
 \seealso{
 Other farrisdata SummarizedExperiment data: 
-\code{\link{farrisTxSE}}
+\code{\link{farrisTxSE}},
+\code{\link{farrisdata}}
 }
 \concept{farrisdata SummarizedExperiment data}
 \keyword{datasets}

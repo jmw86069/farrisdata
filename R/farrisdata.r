@@ -28,6 +28,8 @@
 #' As of October 2024, only one gene symbol was not found:
 #' `"AI314180"`. All other gene symbols were correctly identified.
 #'
+#' @family farrisdata SummarizedExperiment data
+#'
 #' @section Available data:
 #'    \code{\link[farrisdata]{farrisGeneSE}},
 #'    \code{\link{farrisTxSE}}
@@ -341,6 +343,8 @@ NULL
 #' values named by transcript_name defined in the Gencode
 #' GTF file for vM12.
 #'
+#' @family Mouse codon usage data
+#'
 #' @examples
 #' data(GencodeVM12mm10cai);
 #' ## Print the first 20 entries
@@ -382,6 +386,8 @@ NULL
 #' @format `integer` number of codons where the CAI is 0.3
 #' or lower, named by transcript_name defined in the Gencode
 #' GTF file for vM12.
+#'
+#' @family Mouse codon usage data
 #'
 #' @examples
 #' data(GencodeVM12mm10caiCtBad);
