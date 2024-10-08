@@ -18,10 +18,10 @@ plots of transcriptome RNA-seq data, see:
 
 ## How to install
 
-Install using the R package `devtools` and this command:
+Install using the R package `remotes` and this command:
 
 ```
-devtools::install_github("jmw86069/farrisdata")
+remotes::install_github("jmw86069/farrisdata")
 ```
 
 ## Contents
